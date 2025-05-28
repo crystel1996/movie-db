@@ -1,7 +1,10 @@
 <mat-toolbar color="primary" class="movie-header">
-    <movies-logo></movies-logo>
-    <span class="spacer"></span>
-
-    <movies-list-component [items]="layoutProperty.leftMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
-    <movies-list-component [items]="layoutProperty.rightMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
+    <div>
+        <movies-logo></movies-logo>
+        <span class="spacer"></span>
+    </div>
+    <div class="movie-header__menu">
+        <movies-list-component [items]="layoutProperty.leftMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
+        <movies-list-component [items]="layoutProperty.rightMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
+    </div>
 </mat-toolbar>
