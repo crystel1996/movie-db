@@ -1,4 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use 'app/core/utils/theme/theme.scss' as theme;
+@use 'sass:color';
+
+html, body {
+    background-color: #141414;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+body {
+  background-color: #141414; // fond noir Netflix
+  color: #e5e5e5;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 14px;
+
+  &:hover {
+    color: #b3b3b3;
+  }
+  &:active {
+    color: white;
+  }
+}
+
+.mat-toolbar {
+  background-color: #141414 !important;
+  color: white;
+}
+
+.mat-card {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.mat-button.mat-primary {
+  background-color: #e50914;
+  color: white;
+
+  &:hover {
+    background-color: color.scale(#e50914, $lightness: -10%);
+  }
+}

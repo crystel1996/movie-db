@@ -2,4 +2,6 @@
     <movies-logo></movies-logo>
     <span class="spacer"></span>
 
+    <movies-list-component [items]="layoutProperty.leftMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
+    <movies-list-component [items]="layoutProperty.rightMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
 </mat-toolbar>
