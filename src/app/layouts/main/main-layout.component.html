@@ -5,6 +5,7 @@
     </div>
     <div class="movie-header__menu">
         <movies-list-component [items]="layoutProperty.leftMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
+        <movies-search-form></movies-search-form>
         <movies-list-component [items]="layoutProperty.rightMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
     </div>
 </mat-toolbar>

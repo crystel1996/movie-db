@@ -1,0 +1,9 @@
+<mat-form-field appearance="outline" class="search-form" subscriptSizing="dynamic">
+    <input
+        matInput 
+        [placeholder]="placeholder"
+        [(ngModel)]="searchText"
+        (keyup.enter)="onSearch()"
+    >
+    <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>

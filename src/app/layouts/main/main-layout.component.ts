@@ -5,6 +5,7 @@ import { LogoComponent } from "../../shared/logo/logo.component";
 import { ListComponent } from "../../shared/list/list.component";
 import { ILayoutProperty } from "./main-layout.interface";
 import { AlignDirectionEnum } from "../../core/utils/enum/align-direction.enum";
+import { SearchFormComponent } from "../../shared/search-form/search-form.component";
 
 @Component({
     selector: "movies-main-layout",
@@ -15,7 +16,8 @@ import { AlignDirectionEnum } from "../../core/utils/enum/align-direction.enum";
     CommonModule,
     MatToolbarModule,
     LogoComponent,
-    ListComponent
+    ListComponent,
+    SearchFormComponent
 ]
 })
 export class MainLayoutComponent {

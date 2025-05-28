@@ -1,0 +1,7 @@
+@use '@angular/material' as mat;
+@use './../../core/utils/theme/theme.scss' as theme;
+
+a.movie-title {
+    color: mat.m2-get-color-from-palette(theme.$netflix-primary, 700);
+    font-size: 2.5rem;
+}

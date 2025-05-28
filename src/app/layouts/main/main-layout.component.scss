@@ -4,10 +4,11 @@
     justify-content: flex-start;
     width: 100vw;
     height: 60px;
-    overflow-x: hidden;
+    overflow: hidden;
     & .movie-header__menu {
         display: flex;
         align-items: center;
+        justify-content: center;
         justify-content: space-around;
         width: 100%;
     }

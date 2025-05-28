@@ -11,7 +11,7 @@ $netflix-theme: mat.m2-define-dark-theme((
     warn: $netflix-warn,
   ),
   typography: mat.m2-define-typography-config(),
-  density: 0,
+  density: -2,
 ));
 
 // Include theme styles
