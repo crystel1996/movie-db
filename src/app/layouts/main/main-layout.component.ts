@@ -1,11 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { LogoComponent } from "../../shared/logo/logo.component";
 import { ListComponent } from "../../shared/list/list.component";
 import { ILayoutProperty } from "./main-layout.interface";
 import { AlignDirectionEnum } from "../../core/utils/enum/align-direction.enum";
 import { SearchFormComponent } from "../../shared/search-form/search-form.component";
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
     selector: "movies-main-layout",
@@ -15,6 +17,7 @@ import { SearchFormComponent } from "../../shared/search-form/search-form.compon
     imports: [
     CommonModule,
     MatToolbarModule,
+    MatIconModule,
     LogoComponent,
     ListComponent,
     SearchFormComponent
@@ -23,7 +26,15 @@ import { SearchFormComponent } from "../../shared/search-form/search-form.compon
 export class MainLayoutComponent {
     // This component serves as the main layout for the application.
     // It can be extended with additional functionality or properties as needed.
-    constructor() {}
+    constructor(private breakpointObserver: BreakpointObserver) {
+        this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+            this.isMobile = result.matches;
+            this.layoutProperty.menuItemsDirection = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
+        });
+    }
+
+    isMobile = false;
+    showMobileMenu = false;
 
     layoutProperty: ILayoutProperty = {
         leftMenuItems: [
@@ -38,5 +49,9 @@ export class MainLayoutComponent {
             {path: "/login", label: "Login/Signup"},
         ],
         menuItemsDirection: AlignDirectionEnum.HORIZONTAL
+    }
+
+    toggleMobileMenu(): void {
+        this.showMobileMenu = !this.showMobileMenu;
     }
 }

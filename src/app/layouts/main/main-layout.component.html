@@ -3,9 +3,26 @@
         <movies-logo></movies-logo>
         <span class="spacer"></span>
     </div>
-    <div class="movie-header__menu">
+    <div class="movie-header__menu" *ngIf="!isMobile">
         <movies-list-component [items]="layoutProperty.leftMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
         <movies-search-form></movies-search-form>
         <movies-list-component [items]="layoutProperty.rightMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
     </div>
+    <mat-icon (click)="toggleMobileMenu()" *ngIf="isMobile">menu</mat-icon>
 </mat-toolbar>
+
+<ng-container *ngIf="isMobile && showMobileMenu">
+  <!-- Drawer, dialog, sidenav, or collapsible menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+        <div class="mobile-menu__close">
+            <mat-icon (click)="toggleMobileMenu()">close</mat-icon>
+        </div>
+        <movies-search-form></movies-search-form>
+        <movies-list-component
+        [items]="layoutProperty.leftMenuItems.concat(layoutProperty.rightMenuItems)"
+        [direction]="layoutProperty.menuItemsDirection"
+        ></movies-list-component>
+    </div>
+  </div>
+</ng-container>
