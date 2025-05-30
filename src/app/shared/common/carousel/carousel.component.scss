@@ -6,7 +6,7 @@
     height: 100%;
     width: 100%;
     h2 {
-        color: white;
+        color: theme.$netflix-light-color;
         font-size: 36px;
         margin-bottom: 16px;
     }
@@ -28,7 +28,7 @@
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        color: white;
+        color: theme.$netflix-light-color;
         max-width: 500px;
         padding: 24px;
     }
@@ -42,7 +42,7 @@
         }
         & .btn-outlined {
             border: 1px solid mat.m2-get-color-from-palette(theme.$netflix-primary, 700);
-            color: white;
+            color: theme.$netflix-light-color;
         }
     }
     .carousel-dots {
@@ -54,7 +54,7 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color: white;
+            background-color: theme.$netflix-light-color;
             cursor: pointer;
             transition: background-color 0.3s ease;
 

@@ -9,7 +9,7 @@
     width: 100vw;
     height: 60px;
     overflow: hidden;
-    @media(min-width: breakpoints.$breakpoint-md) {
+    @media(min-width: breakpoints.$breakpoint-lg) {
         justify-content: flex-start;
     }
     & .movie-header__menu {

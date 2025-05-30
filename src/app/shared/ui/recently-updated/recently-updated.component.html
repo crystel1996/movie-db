@@ -1,0 +1,18 @@
+<div class="recently-updated__list">
+    <div *ngFor="let item of recentlyUpdated.items" class="recently-updated__item">
+        <a
+            [href]="item.url"
+            class="recently-updated__link"
+        >
+            <movies-card class="recently-updated__card" [card]="item.card"></movies-card>
+            <div class="recently-updated__details">
+                <h3 class="recently-updated__title">{{ item.card.title }}</h3>
+                <p class="recently-updated__episode">{{ item.lastEpisode }}</p>
+                <p class="recently-updated__date">
+                    Last updated :
+                    {{ item.updatedAt | date: "dd MMM yyyy 'at' HH:mm" }}
+                </p>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.recently-updated__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    & .recently-updated__item {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    & .recently-updated__card {
+        display: block;
+        height: 300px;
+    }
+    & .recently-updated__details {
+        padding: 0 8px;
+
+        & .recently-updated__title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 4px 0;
+        }
+
+        & .recently-updated__episode,
+        & .recently-updated__date {
+            font-size: 0.9rem;
+            color: #888;
+            margin: 0;
+        }
+    }
+}           

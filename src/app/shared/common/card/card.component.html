@@ -1,0 +1,24 @@
+<mat-card class="card" appearance="outlined">
+  <mat-card-header *ngIf="!card.onlyImage">
+    <mat-card-title>{{ card.title }}</mat-card-title>
+    <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <img *ngIf="card.onlyImage" class="card-image" mat-card-image [src]="card.imageUrl" [alt]="card.title">
+  <mat-card-content *ngIf="!card.onlyImage">
+    <p>
+      {{ card.description }}
+    </p>
+  </mat-card-content>
+  <ng-container *ngIf="!card.onlyImage">
+    <mat-card-actions *ngFor="let action of card.actions">
+        <a *ngIf="action.href" [href]="action.href" mat-flat-button color="primary">
+            <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
+            {{ action.label }}
+        </a>
+        <button *ngIf="!action.href" mat-flat-button color="primary" (click)="action.buttonAction?.()">
+            <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
+            {{ action.label }}
+        </button>
+    </mat-card-actions>
+  </ng-container>
+</mat-card>

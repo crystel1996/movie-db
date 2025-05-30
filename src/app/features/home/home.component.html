@@ -1,4 +1,10 @@
 <movies-main-layout></movies-main-layout>
-<div class="home-cta__container">
-    <movies-call-to-action [carouselMovies]="carouselMovies"></movies-call-to-action>
-</div>
+<main class="home">
+    <div class="home-cta__container">
+        <movies-call-to-action [carouselMovies]="carouselMovies"></movies-call-to-action>
+    </div>
+    <div class="recently-updated__container">
+        <movies-section-title [title]="'Recently Updated'"></movies-section-title>
+        <movies-recently-updated [recentlyUpdated]="recentlyUpdatedMovies"></movies-recently-updated>
+    </div>
+</main>

@@ -1,4 +1,16 @@
+.home {
+    padding: 0 24px;
+}
+
 .home-cta__container {
     width: 100vw;
+    height: calc(100vh - 60px);
+}
+
+.recently-updated__container {
+    padding: 24px 0;
+}
+
+::ng-deep .home-cta__container .mat-mdc-tab-body {
     height: calc(100vh - 60px);
 }
