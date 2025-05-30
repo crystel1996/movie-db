@@ -2,8 +2,9 @@
 @use './../../../core/utils/theme/theme.scss' as theme;
 
 .carousel-tabs {
-    width: 100vw;
     overflow: hidden;
+    height: 100%;
+    width: 100%;
     h2 {
         color: white;
         font-size: 36px;
@@ -11,10 +12,13 @@
     }
     & .carousel-slide {
         position: relative;
+         overflow: hidden;
+        height: 100%;
+        width: 100%;
     }
     & .carousel-image {
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         object-fit: cover;
         filter: brightness(0.4);
         box-shadow: inset 0 -80px 80px -20px rgba(0, 0, 0, 0.7);
