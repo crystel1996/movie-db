@@ -1,4 +1,4 @@
-<mat-tab-group class="carousel-tabs">
+<mat-tab-group class="carousel-tabs" [(selectedIndex)]="selectedIndex">
   <mat-tab *ngFor="let item of props.items">
     <div class="carousel-slide">
       <img class="carousel-image" [src]="item.imageUrl" [alt]="item.title" />
@@ -12,7 +12,8 @@
         </div>
         <div class="carousel-actions" >
           <ng-container *ngFor="let action of item.actions">
-            <button 
+            <a 
+              [href]="action.url"
               *ngIf="action.buttonType === 'filled'"
               mat-flat-button
               color="primary"
@@ -20,8 +21,9 @@
             >
               <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
               {{ action.label }}
-            </button>
-            <button 
+            </a>
+            <a 
+              [href]="action.url"
               *ngIf="action.buttonType === 'outlined'"
               mat-stroked-button
               color="primary"
@@ -29,8 +31,15 @@
             >
               <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
               {{ action.label }}
-            </button>
+            </a>
           </ng-container>
+        </div>
+        <div class="carousel-dots">
+          <span
+            *ngFor="let item of props.items; let i = index"
+            [class.active]="i === selectedIndex"
+            (click)="selectedIndex = i"
+          ></span>
         </div>
       </div>
     </div>

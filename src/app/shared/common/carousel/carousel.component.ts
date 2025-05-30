@@ -21,6 +21,8 @@ import { MatIconModule } from "@angular/material/icon";
 export class CarouselComponent {
     @Input() props: ICarousel = DEFAULT_CAROSUEL_VALUES;
 
+    selectedIndex: number = 0
+
     getMetaKeys(meta: MetaType): string[] {
         return Object.keys(meta);
     }
