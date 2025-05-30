@@ -16,30 +16,31 @@
         display: block;
         height: 300px;
     }
-    & .new-release__details {
-        padding: 0 8px;
+}    
 
-        & .new-release__title {
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin: 4px 0;
-        }
+.new-release__details {
+    padding: 0 8px;
 
-        & .new-release__duration,
-        & .new-release__genres {
-            font-size: 0.9rem;
-            color: #888;
-            margin: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-        & .new-release__genres {
-            flex-direction: column;
-        }
-        & .new-release__genre {
-            color: theme.$netflix-light-color;
-        }
+    & .new-release__title {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin: 4px 0;
     }
-}           
+
+    & .new-release__duration,
+    & .new-release__genres {
+        font-size: 0.9rem;
+        color: #888;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+    & .new-release__genres {
+        flex-direction: column;
+    }
+    & .new-release__genre {
+        color: theme.$netflix-light-color;
+    }
+}
