@@ -4,7 +4,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { IListItem } from "./list.interface";
 import { RouterModule } from "@angular/router";
-import { AlignDirectionEnum } from "../../core/utils/enum/align-direction.enum";
+import { AlignDirectionEnum } from "../../../core/utils/enum/align-direction.enum";
 
 @Component({
     selector: "movies-list-component",

@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
-@use './../../core/utils/theme/theme.scss' as theme;
-@use './../../core/utils/breakpoints/breakpoints.scss' as breakpoints;
+@use './../../../core/utils/theme/theme.scss' as theme;
+@use './../../../core/utils/breakpoints/breakpoints.scss' as breakpoints;
 
 a.movie-title {
     color: mat.m2-get-color-from-palette(theme.$netflix-primary, 700);

@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+@use './../../../core/utils/theme/theme.scss' as theme;
+
+.carousel-tabs {
+    width: 100vw;
+    overflow: hidden;
+    & .carousel-slide {
+        position: relative;
+    }
+    & .carousel-image {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        filter: brightness(0.4);
+        box-shadow: inset 0 -80px 80px -20px rgba(0, 0, 0, 0.7);
+    }
+    & .carousel-content {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        color: white;
+        max-width: 500px;
+        padding: 24px;
+    }
+    & .carousel-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+        & .action-button {
+           padding: 24px 12px
+        }
+        & .btn-outlined {
+            border: 1px solid mat.m2-get-color-from-palette(theme.$netflix-primary, 700);
+            color: white;
+        }
+    }
+    
+}
+
+::ng-deep .mat-mdc-tab-header {
+  display: none !important;
+}

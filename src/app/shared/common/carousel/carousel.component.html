@@ -1,0 +1,38 @@
+<mat-tab-group class="carousel-tabs">
+  <mat-tab *ngFor="let item of props.items">
+    <div class="carousel-slide">
+      <img class="carousel-image" [src]="item.imageUrl" [alt]="item.title" />
+      <div class="carousel-content">
+        <h2>{{ item.title }}</h2>
+        <p class="description">{{ item.description }}</p>
+        <div class="meta" *ngIf="item.meta">
+          <span *ngFor="let key of getMetaKeys(item.meta)">
+            {{ item.meta[key] }}
+          </span>
+        </div>
+        <div class="carousel-actions" >
+          <ng-container *ngFor="let action of item.actions">
+            <button 
+              *ngIf="action.buttonType === 'filled'"
+              mat-flat-button
+              color="primary"
+              class="action-button btn-filled"
+            >
+              <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
+              {{ action.label }}
+            </button>
+            <button 
+              *ngIf="action.buttonType === 'outlined'"
+              mat-stroked-button
+              color="primary"
+              class="action-button btn-outlined"
+            >
+              <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
+              {{ action.label }}
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

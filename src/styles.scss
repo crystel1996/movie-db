@@ -4,10 +4,12 @@
 @use 'sass:color';
 
 html, body {
-    background-color: #141414;
+  background-color: #141414;
   color: #fff;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 body {
@@ -29,6 +31,12 @@ a {
   }
 }
 
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
 .mat-toolbar {
   background-color: #141414 !important;
   color: white;
@@ -39,11 +47,8 @@ a {
   color: white;
 }
 
-.mat-button.mat-primary {
-  background-color: #e50914;
-  color: white;
-
-  &:hover {
-    background-color: color.scale(#e50914, $lightness: -10%);
-  }
+button.mat-mdc-unelevated-button {
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
 }

@@ -2,11 +2,11 @@ import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { LogoComponent } from "../../shared/logo/logo.component";
-import { ListComponent } from "../../shared/list/list.component";
+import { LogoComponent } from "../../shared/common/logo/logo.component";
+import { ListComponent } from "../../shared/common/list/list.component";
 import { ILayoutProperty } from "./main-layout.interface";
 import { AlignDirectionEnum } from "../../core/utils/enum/align-direction.enum";
-import { SearchFormComponent } from "../../shared/search-form/search-form.component";
+import { SearchFormComponent } from "../../shared/ui/search-form/search-form.component";
 import { MatIconModule } from "@angular/material/icon";
 
 @Component({
