@@ -5,6 +5,8 @@ import { ICarousel } from "../../shared/common/carousel/carousel.interface";
 import { RecentlyUpdatedComponent } from "../../shared/ui/recently-updated/recently-updated.component";
 import { IRecentlyUpdated } from "../../shared/ui/recently-updated/recently-updated.interface";
 import { SectionTitleComponent } from "../../shared/common/title/title.component";
+import { INewRelease } from "../../shared/ui/new-release/new-release.interface";
+import { NewReleaseComponent } from "../../shared/ui/new-release/new-release.component";
 
 @Component({
     selector: "movies-home",
@@ -15,7 +17,8 @@ import { SectionTitleComponent } from "../../shared/common/title/title.component
     MainLayoutComponent,
     CallToActionComponent,
     RecentlyUpdatedComponent,
-    SectionTitleComponent
+    SectionTitleComponent,
+    NewReleaseComponent
 ],
 })
 export class HomeComponent {
@@ -108,6 +111,116 @@ export class HomeComponent {
                         url: "/watch/wednesday"
                     }
                 ]
+    };
+
+    newReleaseMovies: INewRelease = {
+        items: [
+            {
+                card: {
+                    title: "Inception",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg",
+                },
+                duration: "2h 28m",
+                genres: ["Action", "Sci-Fi", "Thriller"],
+                url: "/watch/inception"
+            },
+            {
+                card: {
+                    title: "Interstellar",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+                },
+                duration: "2h 49m",
+                genres: ["Adventure", "Drama", "Sci-Fi"],
+                url: "/watch/interstellar"
+            },
+            {
+                card: {
+                    title: "The Matrix",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+                },
+                duration: "2h 16m",
+                genres: ["Action", "Sci-Fi"],
+                url: "/watch/the-matrix"
+            },
+            {
+                card: {
+                    title: "Parasite",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+                },
+                duration: "2h 12m",
+                genres: ["Drama", "Thriller"],
+                url: "/watch/parasite"
+            },
+            {
+                card: {
+                    title: "Avengers: Endgame",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+                },
+                duration: "3h 1m",
+                genres: ["Action", "Adventure", "Sci-Fi"],
+                url: "/watch/avengers-endgame"
+            }
+        ]
+    };
+
+    newReleaseSeries: INewRelease = {
+        items: [
+            {
+                card: {
+                    title: "Inception",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg",
+                },
+                duration: "2h 28m",
+                genres: ["Action", "Sci-Fi", "Thriller"],
+                url: "/watch/inception"
+            },
+            {
+                card: {
+                    title: "Interstellar",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+                },
+                duration: "2h 49m",
+                genres: ["Adventure", "Drama", "Sci-Fi"],
+                url: "/watch/interstellar"
+            },
+            {
+                card: {
+                    title: "The Matrix",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+                },
+                duration: "2h 16m",
+                genres: ["Action", "Sci-Fi"],
+                url: "/watch/the-matrix"
+            },
+            {
+                card: {
+                    title: "Parasite",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+                },
+                duration: "2h 12m",
+                genres: ["Drama", "Thriller"],
+                url: "/watch/parasite"
+            },
+            {
+                card: {
+                    title: "Avengers: Endgame",
+                    onlyImage: true,
+                    imageUrl: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+                },
+                duration: "3h 1m",
+                genres: ["Action", "Adventure", "Sci-Fi"],
+                url: "/watch/avengers-endgame"
+            }
+        ]
     }
 
 }
