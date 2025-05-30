@@ -1,0 +1,26 @@
+<div class="recommendation__list">
+    <div *ngFor="let item of recommendation.items" class="recommendation__item">
+        <a
+            [href]="item.url"
+            class="recommendation__link"
+        >
+            <movies-card class="recommendation__card" [card]="item.card"></movies-card>
+            <div class="recommendation__details">
+                <h3 class="recommendation__title">{{ item.card.title }}</h3>
+                <div class="recommendation__duration">
+                    <p>Duration: </p>
+                    <button mat-stroked-button color="primary">
+                        <mat-icon>schedule</mat-icon>
+                        {{ item.duration }}
+                    </button>
+                </div>
+                <div class="recommendation__genres">
+                    <p>Genres: </p>
+                    <p class="recommendation__genre">
+                        {{ item.genres.join(', ') }}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
