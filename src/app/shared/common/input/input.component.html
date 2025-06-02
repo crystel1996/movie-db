@@ -1,0 +1,29 @@
+<mat-form-field appearance="outline" class="form-field" [ngClass]="customClass" subscriptSizing="dynamic">
+  <mat-label *ngIf="!label">{{ label }}</mat-label>
+    <input 
+        matInput 
+        [type]="type"
+        [placeholder]="placeholder" 
+        [value]="value"
+        (input)="handleInputChange($event)"
+    />
+    <mat-icon *ngIf="icon" matPrefix>{{ icon }}</mat-icon>
+
+  <mat-error *ngIf="control && control.hasError('required')">
+    {{ label }} requis
+  </mat-error>
+
+  <mat-error *ngIf="control && control.hasError('email')">
+    {{ label }} invalide
+  </mat-error>
+
+  <mat-error *ngIf="control && control.hasError('minlength')">
+    Minimum {{ control.errors?.['minlength']?.requiredLength }} character required
+  </mat-error>
+
+  <mat-error *ngIf="control && control.hasError('maxlength')">
+    Maximum {{ control.errors?.['maxlength']?.requiredLength }} character required
+  </mat-error>
+
+  <!-- Ajoute d'autres erreurs spécifiques si besoin -->
+</mat-form-field>

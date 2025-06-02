@@ -1,0 +1,49 @@
+<div class="auth-container">
+    <h2>Register to Movies App</h2>
+
+    <form class="auth-form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      
+        <movies-input
+          formControlName="email"
+          label="Email"
+          type="email"
+          placeholder="Enter your email"
+          icon="email"
+        ></movies-input>
+      
+      
+        <movies-input
+          formControlName="password"
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          icon="lock"
+        ></movies-input>
+
+        <movies-input
+          formControlName="confirmPassword"
+          label="Confirm your password"
+          type="password"
+          placeholder="Confirm your password"
+          icon="lock"
+        ></movies-input>
+      
+      
+        <button 
+          mat-raised-button 
+          color="primary" 
+          type="submit"
+        >
+          Register
+        </button>
+      
+
+    </form>
+
+    <p>
+      You have already an account?
+      <a href="/login">
+        Log in
+      </a>
+    </p>
+</div>

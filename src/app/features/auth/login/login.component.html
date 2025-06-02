@@ -1,0 +1,41 @@
+<div class="auth-container">
+    <h2>Login to Movies App</h2>
+
+    <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      
+        <movies-input
+          formControlName="email"
+          label="Email"
+          type="email"
+          placeholder="Enter your email"
+          icon="email"
+        ></movies-input>
+      
+      
+        <movies-input
+          formControlName="password"
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          icon="lock"
+        ></movies-input>
+      
+      
+        <button 
+          mat-raised-button 
+          color="primary" 
+          type="submit"
+        >
+          Login
+        </button>
+      
+
+    </form>
+
+    <p>
+      Don't have an account?
+      <a href="/register">
+        Sign up
+      </a>
+    </p>
+</div>

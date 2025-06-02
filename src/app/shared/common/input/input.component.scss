@@ -3,12 +3,12 @@
 
 @include mat.core();
 
-.search-form {
+.form-field {
     display: flex;
     flex-direction: column;
     align-items: center;
     @include mat.form-field-overrides((
-        outlined-container-shape: 25px,
+        outlined-container-shape: 6px,
         outlined-input-text-placeholder-color:  mat.m2-get-color-from-palette(theme.$netflix-accent, 700),
     ));
     
@@ -16,7 +16,7 @@
 
 ::ng-deep .mat-form-field-appearance-outline .mdc-text-field--outlined {
   background-color: theme.$netflix-light-color;
-  border-radius: 25px;
+  border-radius: 6px;
 }
 
 ::ng-deep .mdc-text-field__input {
