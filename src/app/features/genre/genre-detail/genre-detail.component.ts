@@ -5,6 +5,9 @@ import { MainLayoutComponent } from "../../../layouts/main/main-layout.component
 import { SectionTitleComponent } from "../../../shared/common/title/title.component";
 import { IGenreDetail } from "../../../shared/ui/genre-detail/genre-detail.interface";
 import { GenreDetailComponent } from "../../../shared/ui/genre-detail/genre-detail.component";
+import { GenreListComponent } from "../../../shared/ui/genre-list/genre-list.component";
+import { AlignDirectionEnum } from "../../../core/utils/enum/align-direction.enum";
+import { IList } from "../../../shared/common/list/list.interface";
 
 @Component({
     selector: 'movies-genre-detail-feature',
@@ -12,10 +15,11 @@ import { GenreDetailComponent } from "../../../shared/ui/genre-detail/genre-deta
     styleUrls: ['./genre-detail.component.scss'],
     standalone: true,
     imports: [
-    MainLayoutComponent,
-    SectionTitleComponent,
-    GenreDetailComponent
-]
+        MainLayoutComponent,
+        SectionTitleComponent,
+        GenreDetailComponent,
+        GenreListComponent
+    ]
 })
 export class GenreDetailFeature implements OnInit {
     private genreId!: string;
@@ -62,7 +66,30 @@ export class GenreDetailFeature implements OnInit {
                     genres: ["Drama", "Sci-Fi", "Mystery"],
                     url: "/watch/blade-runner-2049"
                 }
-            ]
+            ],
+    };
+
+    genreList: IList ={
+        items:  [
+                { path: '/genres/10759', label: "Action & Adventure" },
+                { path: '/genres/16', label: "Animation" },
+                { path: '/genres/35', label: "Comedy" },
+                { path: '/genres/80', label: "Crime" },
+                { path: '/genres/99', label: "Documentary" },
+                { path: '/genres/18', label: "Drama" },
+                { path: '/genres/10751', label: "Family" },
+                { path: '/genres/10762', label: "Kids" },
+                { path: '/genres/9648', label: "Mystery" },
+                { path: '/genres/10763', label: "News" },
+                { path: '/genres/10764', label: "Reality" },
+                { path: '/genres/10765', label: "Sci-Fi & Fantasy" },
+                { path: '/genres/10766', label: "Soap" },
+                { path: '/genres/10767', label: "Talk" },
+                { path: '/genres/10768', label: "War & Politics" },
+                { path: '/genres/37', label: "Western" }
+            ],
+        direction: AlignDirectionEnum.HORIZONTAL,
+        customClass: 'nav-list'
     }
 
     constructor(

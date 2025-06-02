@@ -1,0 +1,11 @@
+.genre-detail__list-genre {
+    ::ng-deep .nav-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    ::ng-deep .nav-list a {
+        font-size: 1.5rem;
+        text-decoration: underline;
+    }
+}

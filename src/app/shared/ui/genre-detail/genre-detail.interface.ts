@@ -1,4 +1,5 @@
 import { ICard } from "../../common/card/card.interface";
+import { IList } from "../../common/list/list.interface";
 
 export interface IGenreDetailItems {
     url: string;
@@ -9,5 +10,5 @@ export interface IGenreDetailItems {
 
 
 export interface IGenreDetail {
-    items: IGenreDetailItems[]
+    items: IGenreDetailItems[];
 }
