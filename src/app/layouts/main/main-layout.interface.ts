@@ -1,8 +1,6 @@
-import { AlignDirectionEnum } from "../../core/utils/enum/align-direction.enum";
-import { IListItem } from "../../shared/common/list/list.interface";
+import { IList } from "../../shared/common/list/list.interface";
 
 export interface ILayoutProperty {
-    leftMenuItems: IListItem[];
-    rightMenuItems: IListItem[];
-    menuItemsDirection: AlignDirectionEnum
+    navigationLeft: IList;
+    navigationRight: IList;
 }

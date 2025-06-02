@@ -4,9 +4,9 @@
         <span class="spacer"></span>
     </div>
     <div class="movie-header__menu" *ngIf="!isMobile">
-        <movies-list-component [items]="layoutProperty.leftMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
+        <movies-list-component [list]="layoutProperty.navigationLeft"></movies-list-component>
         <movies-search-form></movies-search-form>
-        <movies-list-component [items]="layoutProperty.rightMenuItems" [direction]="layoutProperty.menuItemsDirection"></movies-list-component>
+        <movies-list-component [list]="layoutProperty.navigationRight"></movies-list-component>
     </div>
     <mat-icon (click)="toggleMobileMenu()" *ngIf="isMobile">menu</mat-icon>
 </mat-toolbar>
@@ -20,8 +20,7 @@
         </div>
         <movies-search-form></movies-search-form>
         <movies-list-component
-        [items]="layoutProperty.leftMenuItems.concat(layoutProperty.rightMenuItems)"
-        [direction]="layoutProperty.menuItemsDirection"
+        [list]="mergedNavigationList"
         ></movies-list-component>
     </div>
   </div>

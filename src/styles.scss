@@ -17,6 +17,10 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+main {
+    padding: 0 24px;
+}
+
 a {
   color: theme.$netflix-light-color;
   text-decoration: none;
@@ -28,6 +32,19 @@ a {
   &:active {
     color:  theme.$netflix-light-color;
   }
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.75rem;
+  font-weight: 500;
 }
 
 p {

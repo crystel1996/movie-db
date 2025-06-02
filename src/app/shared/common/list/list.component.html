@@ -1,11 +1,12 @@
-<nav [ngClass]="direction === 'horizontal' ? 'horizontal-nav' : 'vertical-nav'">
+<nav [ngClass]="[list.customClass || '',list.direction === 'horizontal' ? 'horizontal-nav' : 'vertical-nav']" >
     <a
         mat-list-item
-        *ngFor="let item of items"
+        *ngFor="let item of list.items"
         [routerLink]="item.path"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
         role="listitem"
+        [ngClass]="item.customClass || ''"
     >
         <mat-icon *ngIf="item.icon" class="nav-icon">{{ item.icon }}</mat-icon>
         <span>{{ item.label }}</span>

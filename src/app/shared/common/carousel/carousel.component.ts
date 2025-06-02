@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, ViewEncapsulation } from "@angular/core";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatButtonModule } from "@angular/material/button";
 import { ICarousel, MetaType } from "./carousel.interface";
@@ -16,7 +16,7 @@ import { MatIconModule } from "@angular/material/icon";
         MatTabsModule,
         MatButtonModule,
         MatIconModule
-    ]
+    ],
 })
 export class CarouselComponent {
     @Input() props: ICarousel = DEFAULT_CAROSUEL_VALUES;

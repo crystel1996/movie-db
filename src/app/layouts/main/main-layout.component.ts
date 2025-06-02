@@ -29,7 +29,8 @@ export class MainLayoutComponent {
     constructor(private breakpointObserver: BreakpointObserver) {
         this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
             this.isMobile = result.matches;
-            this.layoutProperty.menuItemsDirection = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
+            this.layoutProperty.navigationLeft.direction = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
+            this.layoutProperty.navigationRight.direction = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
         });
     }
 
@@ -37,19 +38,24 @@ export class MainLayoutComponent {
     showMobileMenu = false;
 
     layoutProperty: ILayoutProperty = {
-        leftMenuItems: [
-            {path: "/", label: "Home"},
-            {path: "/genres", label: "Genres"},
-            {path: "/country", label: "Country"},
-        ],
-        rightMenuItems: [
-            {path: "/movies", label: "Movies"},
-            {path: "/series", label: "Series"},
-            {path: "/animation", label: "Animation"},
-            {path: "/login", label: "Login/Signup"},
-        ],
-        menuItemsDirection: AlignDirectionEnum.HORIZONTAL
+        navigationLeft: {
+            items: [
+                {path: "/", label: "Home"},
+                {path: "/genres", label: "Genres"},
+            ],
+            direction:  AlignDirectionEnum.HORIZONTAL
+        },
+        navigationRight: {
+            items: [
+                {path: "/movies", label: "Movies"},
+                {path: "/series", label: "Series"},
+                {path: "/login", label: "Login/Signup"},
+            ],
+            direction:  AlignDirectionEnum.HORIZONTAL
+        },
     }
+
+    mergedNavigationList = {...this.layoutProperty.navigationLeft, ...this.layoutProperty.navigationRight}
 
     toggleMobileMenu(): void {
         this.showMobileMenu = !this.showMobileMenu;

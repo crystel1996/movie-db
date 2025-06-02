@@ -2,9 +2,9 @@ import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
-import { IListItem } from "./list.interface";
+import { IList } from "./list.interface";
 import { RouterModule } from "@angular/router";
-import { AlignDirectionEnum } from "../../../core/utils/enum/align-direction.enum";
+import { DEFAULT_LIST } from "./list.constants";
 
 @Component({
     selector: "movies-list-component",
@@ -19,7 +19,5 @@ import { AlignDirectionEnum } from "../../../core/utils/enum/align-direction.enu
     ],
 })
 export class ListComponent {
-    @Input() items: IListItem[] = [];
-    @Input() direction: AlignDirectionEnum = AlignDirectionEnum.HORIZONTAL;
-
+    @Input() list: IList = DEFAULT_LIST;
 }

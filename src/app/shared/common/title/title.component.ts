@@ -4,7 +4,7 @@ import { Component, Input } from "@angular/core";
   selector: "movies-section-title",
   templateUrl: "./title.component.html",
   styleUrls: ["./title.component.scss"],
-  standalone: true
+  standalone: true,
 })
 export class SectionTitleComponent {
     @Input() title: string = "";
