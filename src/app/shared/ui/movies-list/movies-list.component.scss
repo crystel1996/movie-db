@@ -1,0 +1,46 @@
+
+@use './../../../core/utils/theme/theme.scss' as theme;
+
+.movies-list__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    & .movies-list__item {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    & .movies-list__card {
+        display: block;
+        height: 300px;
+    }
+}    
+
+.movies-list__details {
+    padding: 0 8px;
+
+    & .movies-list__title {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin: 4px 0;
+    }
+
+    & .movies-list__duration,
+    & .movies-list__genres {
+        font-size: 0.9rem;
+        color: #888;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+    & .movies-list__genres {
+        flex-direction: column;
+    }
+    & .movies-list__genre {
+        color: theme.$netflix-light-color;
+    }
+}
