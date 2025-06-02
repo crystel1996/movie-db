@@ -4,5 +4,12 @@ import { GenreDetailFeature as GenreDetailComponent } from './genre-detail/genre
 
 export const genreRoutes: Routes = [
     {title: 'Genres', path: 'genres', component: GenreComponent},
-    {title: 'Genre detail', path: 'genres/:id', component: GenreDetailComponent}
+    {
+        title: 'Genre detail', 
+        path: 'genres/:id', 
+        component: GenreDetailComponent, 
+        data: {
+            renderMode: 'server'
+        }
+    }
 ];
