@@ -1,0 +1,46 @@
+
+@use './../../../core/utils/theme/theme.scss' as theme;
+
+.genre-detail__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    & .genre-detail__item {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    & .genre-detail__card {
+        display: block;
+        height: 300px;
+    }
+}    
+
+.genre-detail__details {
+    padding: 0 8px;
+
+    & .genre-detail__title {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin: 4px 0;
+    }
+
+    & .genre-detail__duration,
+    & .genre-detail__genres {
+        font-size: 0.9rem;
+        color: #888;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+    & .genre-detail__genres {
+        flex-direction: column;
+    }
+    & .genre-detail__genre {
+        color: theme.$netflix-light-color;
+    }
+}
