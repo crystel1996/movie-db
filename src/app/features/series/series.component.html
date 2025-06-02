@@ -1,0 +1,9 @@
+<movies-main-layout></movies-main-layout>
+<main class="series-list">
+    <div class="series-list__container">
+        <ng-content *ngFor="let item of series">
+            <movies-section-title [title]="item.genre"></movies-section-title>
+            <movies-series-list [series]="item.series"></movies-series-list>
+        </ng-content>
+    </div>
+</main>

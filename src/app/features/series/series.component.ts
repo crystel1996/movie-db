@@ -1,26 +1,26 @@
 import { Component } from "@angular/core";
 import { MainLayoutComponent } from "../../layouts/main/main-layout.component";
-import { MoviesListComponent } from "../../shared/ui/movies-list/movies-list.component";
 import { SectionTitleComponent } from "../../shared/common/title/title.component";
 import { CommonModule } from "@angular/common";
-import { IMoviesFeature } from "./movies.interface";
+import { ISeriesFeature } from "./series.interface";
+import { SeriesListComponent } from "../../shared/ui/series-list/series-list.component";
 
 @Component({
-    selector: "movies-movies-list-feature",
-    styleUrls: ['./movies.component.scss'],
-    templateUrl: './movies.component.html',
+    selector: "series-movies-list",
+    styleUrls: ['./series.component.scss'],
+    templateUrl: './series.component.html',
     imports: [
     MainLayoutComponent,
-    MoviesListComponent,
+    SeriesListComponent,
     SectionTitleComponent,
     CommonModule
 ]
 })
-export class MoviesComponent {
-    movies: IMoviesFeature[] = [
+export class SeriesComponent {
+    series: ISeriesFeature[] = [
     {
         genre: "Action & Adventure",
-        movies: {
+        series: {
             items: [
                 {
                     card: {
@@ -37,7 +37,7 @@ export class MoviesComponent {
     },
     {
         genre: "Animation",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -54,7 +54,7 @@ export class MoviesComponent {
     },
     {
         genre: "Comedy",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -71,7 +71,7 @@ export class MoviesComponent {
     },
     {
         genre: "Crime",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -88,7 +88,7 @@ export class MoviesComponent {
     },
     {
         genre: "Documentary",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -105,7 +105,7 @@ export class MoviesComponent {
     },
     {
         genre: "Drama",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -122,7 +122,7 @@ export class MoviesComponent {
     },
     {
         genre: "Family",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -139,7 +139,7 @@ export class MoviesComponent {
     },
     {
         genre: "Kids",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -156,7 +156,7 @@ export class MoviesComponent {
     },
     {
         genre: "Mystery",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -173,7 +173,7 @@ export class MoviesComponent {
     },
     {
         genre: "News",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -190,7 +190,7 @@ export class MoviesComponent {
     },
     {
         genre: "Reality",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -207,7 +207,7 @@ export class MoviesComponent {
     },
     {
         genre: "Sci-Fi & Fantasy",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -224,7 +224,7 @@ export class MoviesComponent {
     },
     {
         genre: "Soap",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -241,7 +241,7 @@ export class MoviesComponent {
     },
     {
         genre: "Talk",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -258,7 +258,7 @@ export class MoviesComponent {
     },
     {
         genre: "War & Politics",
-        movies: {
+        series: {
         items: [
             {
             card: {
@@ -275,7 +275,7 @@ export class MoviesComponent {
     },
     {
         genre: "Western",
-        movies: {
+        series: {
         items: [
             {
             card: {

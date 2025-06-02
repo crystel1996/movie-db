@@ -1,0 +1,26 @@
+<div class="series-list__list">
+    <div *ngFor="let item of series.items" class="series-list__item">
+        <a
+            [href]="item.url"
+            class="series-list__link"
+        >
+            <movies-card class="series-list__card" [card]="item.card"></movies-card>
+            <div class="series-list__details">
+                <h3 class="series-list__title">{{ item.card.title }}</h3>
+                <div class="series-list__duration">
+                    <p>Duration: </p>
+                    <button mat-stroked-button color="primary">
+                        <mat-icon>schedule</mat-icon>
+                        {{ item.duration }}
+                    </button>
+                </div>
+                <div class="series-list__genres">
+                    <p>Genres: </p>
+                    <p class="series-list__genre">
+                        {{ item.genres.join(', ') }}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
