@@ -8,5 +8,9 @@ export const serverRoutes: ServerRoute[] = [
   {
       path: 'genres/:id', 
       renderMode: RenderMode.Server
+  },
+  {
+      path: 'movies/:id', 
+      renderMode: RenderMode.Server
   }
 ];

@@ -1,0 +1,37 @@
+@use './../../../core/utils/theme/theme.scss' as theme;
+
+.video-wrapper {
+  position: relative;
+  height: 100%;
+  video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(20, 20, 20, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    transition: opacity 0.3s;
+
+    .volume-slider {
+      width: 100px;
+      margin: 0 12px;
+    }
+
+    .spacer {
+      flex: 1 1 auto;
+    }
+
+    button {
+      color: white;
+    }
+  }
+}
