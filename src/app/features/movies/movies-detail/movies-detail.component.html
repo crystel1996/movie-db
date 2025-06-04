@@ -1,4 +1,14 @@
 <movies-main-layout></movies-main-layout>
+<div class="movies__video-container">
+    <movies-video [itemVideo]="movieDetail.itemVideo"></movies-video>
+</div>
 <main class="movies-detail">
-    <movies-movies-detail></movies-movies-detail>
+    <div>
+        <movies-section-title title="Informations"></movies-section-title>
+        <movies-information [informations]="movieDetail.informations"></movies-information>
+    </div>
+    <div>
+        <movies-section-title title="Other movies"></movies-section-title>
+        <movies-movies-list [movies]="movieDetail.otherMovies"></movies-movies-list>
+    </div>
 </main>

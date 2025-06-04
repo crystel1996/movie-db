@@ -1,9 +1,11 @@
-import { Component, ElementRef, forwardRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, forwardRef, Input, ViewChild } from "@angular/core";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSliderModule } from "@angular/material/slider"
 import { InputComponent } from "../input/input.component";
+import { IVideo } from "./video.interface";
+import { DEFAULT_VIDEO } from "./video.constants";
 
 @Component({
     selector: 'movies-video',
@@ -28,6 +30,7 @@ import { InputComponent } from "../input/input.component";
 export class VideoComponent implements ControlValueAccessor {
 
     @ViewChild('video', { static: true }) videoRef!: ElementRef<HTMLVideoElement>;
+    @Input() itemVideo: IVideo = DEFAULT_VIDEO;
 
     isPlaying: boolean = false;
     muted: boolean = false;

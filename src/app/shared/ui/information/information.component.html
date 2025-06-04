@@ -1,0 +1,6 @@
+<div class="movies-list__informations" *ngFor="let item of informations">
+    <p>{{ item.label }}: </p>
+    <p class="movies-list__information">
+        {{ item.values.join(', ') }}
+    </p>
+</div>

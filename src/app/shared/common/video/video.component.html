@@ -1,6 +1,6 @@
 <div class="video-wrapper">
-    <video #video width="100%" (click)="togglePlay()" [muted]="muted" [volume]="volume" poster="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg">
-        <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+    <video #video width="100%" (click)="togglePlay()" [muted]="muted" [volume]="volume" [poster]="itemVideo.poster">
+        <source [src]="itemVideo.source" [type]="itemVideo.type" />
         Your browser is not supported the player.
     </video>
     <div class="controls">
