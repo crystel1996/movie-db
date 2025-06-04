@@ -1,0 +1,24 @@
+<div class="action__container">
+    <div *ngFor="let action of actions" >
+        <a 
+            [href]="action.url"
+            *ngIf="action.buttonType === 'filled'"
+            mat-flat-button
+            color="primary"
+            [ngClass]="action.buttonType === 'filled' ? 'action-button btn-filled' : 'action-button btn-outlined'"
+        >
+            <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
+            {{ action.label }}
+        </a>
+        <button 
+            *ngIf="!action.url"
+            mat-stroked-button
+            color="primary"
+            class="action-button btn-outlined"
+            (click)="action.click && action.click()"
+        >
+            <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
+            {{ action.label }}
+        </button>
+    </div>
+</div>

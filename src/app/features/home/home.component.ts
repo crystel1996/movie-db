@@ -35,7 +35,7 @@ export class HomeComponent {
                 imageUrl: "https://placeholderimage.eu/api/800/600",
                 actions: [
                     { label: "Watch Now", url: "/watch/inception", buttonType: "filled", icon: "play_arrow" },
-                    { label: "Watch later", url: "/movies/inception", buttonType: "outlined", icon: "watch_later" }
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
                 ]
             },
             {
@@ -45,7 +45,7 @@ export class HomeComponent {
                 imageUrl: "https://placeholderimage.eu/api/800/600",
                 actions: [
                     { label: "Watch Now", url: "/watch/inception", buttonType: "filled", icon: "play_arrow" },
-                    { label: "Watch later", url: "/movies/inception", buttonType: "outlined", icon: "watch_later" }
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
                 ]
             }
         ],
@@ -61,7 +61,10 @@ export class HomeComponent {
                         },
                         lastEpisode: "Series/S1/Episode 1",
                         updatedAt: new Date("2023-10-01T12:00:00Z"),
-                        url: "/watch/inception"
+                        url: "/movies/1",
+                        actions: [
+                            { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                        ]
                     },
                     {
                         card: {
@@ -71,7 +74,10 @@ export class HomeComponent {
                         },
                         lastEpisode: "Series/S4/Episode 2",
                         updatedAt: new Date("2022-10-01T12:00:00Z"),
-                        url: "/watch/the-night-agent"
+                        url: "/movies/1",
+                        actions: [
+                            { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                        ]
                     },
                     {
                         card: {
@@ -81,7 +87,10 @@ export class HomeComponent {
                         },
                         lastEpisode: "Series/S4/Episode 9",
                         updatedAt: new Date("2022-07-01T12:00:00Z"),
-                        url: "/watch/stranger-things"
+                        url: "/movies/1",
+                        actions: [
+                            { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                        ]
                     },
                     {
                         card: {
@@ -91,7 +100,10 @@ export class HomeComponent {
                         },
                         lastEpisode: "Series/S3/Episode 8",
                         updatedAt: new Date("2023-08-15T14:45:00Z"),
-                        url: "/watch/the-witcher"
+                        url: "/movies/1",
+                        actions: [
+                            { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                        ]
                     },
                     {
                         card: {
@@ -101,7 +113,10 @@ export class HomeComponent {
                         },
                         lastEpisode: "Series/S3/Episode 8",
                         updatedAt: new Date("2023-04-19T13:00:00Z"),
-                        url: "/watch/the-mandalorian"
+                        url: "/movies/1",
+                        actions: [
+                            { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                        ]
                     },
                     {
                         card: {
@@ -111,7 +126,10 @@ export class HomeComponent {
                         },
                         lastEpisode: "Series/S1/Episode 8",
                         updatedAt: new Date("2022-11-23T18:00:00Z"),
-                        url: "/watch/wednesday"
+                        url: "/movies/1",
+                        actions: [
+                            { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                        ]
                     }
                 ]
     };
@@ -126,7 +144,10 @@ export class HomeComponent {
                 },
                 duration: "2h 28m",
                 genres: ["Action", "Sci-Fi", "Thriller"],
-                url: "/watch/inception"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -136,7 +157,10 @@ export class HomeComponent {
                 },
                 duration: "2h 49m",
                 genres: ["Adventure", "Drama", "Sci-Fi"],
-                url: "/watch/interstellar"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -146,7 +170,10 @@ export class HomeComponent {
                 },
                 duration: "2h 16m",
                 genres: ["Action", "Sci-Fi"],
-                url: "/watch/the-matrix"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -156,7 +183,10 @@ export class HomeComponent {
                 },
                 duration: "2h 12m",
                 genres: ["Drama", "Thriller"],
-                url: "/watch/parasite"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -166,7 +196,10 @@ export class HomeComponent {
                 },
                 duration: "3h 1m",
                 genres: ["Action", "Adventure", "Sci-Fi"],
-                url: "/watch/avengers-endgame"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             }
         ]
     };
@@ -181,7 +214,10 @@ export class HomeComponent {
                 },
                 duration: "2h 28m",
                 genres: ["Action", "Sci-Fi", "Thriller"],
-                url: "/watch/inception"
+                url: "/series/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -191,7 +227,10 @@ export class HomeComponent {
                 },
                 duration: "2h 49m",
                 genres: ["Adventure", "Drama", "Sci-Fi"],
-                url: "/watch/interstellar"
+                url: "/series/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -201,7 +240,10 @@ export class HomeComponent {
                 },
                 duration: "2h 16m",
                 genres: ["Action", "Sci-Fi"],
-                url: "/watch/the-matrix"
+                url: "/series/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -211,7 +253,10 @@ export class HomeComponent {
                 },
                 duration: "2h 12m",
                 genres: ["Drama", "Thriller"],
-                url: "/watch/parasite"
+                url: "/series/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -221,7 +266,10 @@ export class HomeComponent {
                 },
                 duration: "3h 1m",
                 genres: ["Action", "Adventure", "Sci-Fi"],
-                url: "/watch/avengers-endgame"
+                url: "/series/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             }
         ]
     };
@@ -236,7 +284,10 @@ export class HomeComponent {
                 },
                 duration: "2h 28m",
                 genres: ["Action", "Sci-Fi", "Thriller"],
-                url: "/watch/inception"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -246,7 +297,10 @@ export class HomeComponent {
                 },
                 duration: "2h 49m",
                 genres: ["Adventure", "Drama", "Sci-Fi"],
-                url: "/watch/interstellar"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -256,7 +310,10 @@ export class HomeComponent {
                 },
                 duration: "2h 16m",
                 genres: ["Action", "Sci-Fi"],
-                url: "/watch/the-matrix"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -266,7 +323,10 @@ export class HomeComponent {
                 },
                 duration: "2h 12m",
                 genres: ["Drama", "Thriller"],
-                url: "/watch/parasite"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             },
             {
                 card: {
@@ -276,7 +336,10 @@ export class HomeComponent {
                 },
                 duration: "3h 1m",
                 genres: ["Action", "Adventure", "Sci-Fi"],
-                url: "/watch/avengers-endgame"
+                url: "/movies/1",
+                actions: [
+                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                ]
             }
         ]
     }

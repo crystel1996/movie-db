@@ -5,6 +5,7 @@ import { ICarousel, MetaType } from "./carousel.interface";
 import { CommonModule } from "@angular/common";
 import { DEFAULT_CAROSUEL_VALUES } from "./carousel.constant";
 import { MatIconModule } from "@angular/material/icon";
+import { ActionComponent } from "../action/action.component";
 
 @Component({
     selector: "movies-carousel",
@@ -12,11 +13,12 @@ import { MatIconModule } from "@angular/material/icon";
     styleUrls: ["./carousel.component.scss"],
     standalone: true,
     imports: [
-        CommonModule,
-        MatTabsModule,
-        MatButtonModule,
-        MatIconModule
-    ],
+    CommonModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatIconModule,
+    ActionComponent
+],
 })
 export class CarouselComponent {
     @Input() props: ICarousel = DEFAULT_CAROSUEL_VALUES;

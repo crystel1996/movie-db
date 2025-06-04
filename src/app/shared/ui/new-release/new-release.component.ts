@@ -5,6 +5,7 @@ import { INewRelease } from "./new-release.interface";
 import { DEFAULT_NEW_RELEASE } from "./new-release.constants";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { ActionComponent } from "../../common/action/action.component";
 
 @Component({
   selector: "movies-new-release",
@@ -15,7 +16,8 @@ import { MatIconModule } from "@angular/material/icon";
     CommonModule,
     CardComponent,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ActionComponent
   ]
 })
 export class NewReleaseComponent {

@@ -6,6 +6,9 @@
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 16px;
     & .new-release__item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
         cursor: pointer;
         transition: transform 0.3s ease;
         &:hover {
@@ -19,7 +22,6 @@
 }    
 
 .new-release__details {
-    padding: 0 8px;
 
     & .new-release__title {
         font-weight: bold;

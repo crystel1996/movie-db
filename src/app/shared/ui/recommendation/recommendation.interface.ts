@@ -1,3 +1,4 @@
+import { IAction } from "../../common/action/action.interface";
 import { ICard } from "../../common/card/card.interface";
 
 export interface IRecommendationItem {
@@ -5,6 +6,7 @@ export interface IRecommendationItem {
     url: string;
     duration: string;
     genres: string[];
+    actions: IAction[]
 }
 
 export interface IRecommendation {

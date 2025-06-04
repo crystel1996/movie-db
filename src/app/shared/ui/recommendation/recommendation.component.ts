@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { CardComponent } from "../../common/card/card.component";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { ActionComponent } from "../../common/action/action.component";
 
 @Component({
   selector: "movies-recommendation",
@@ -15,8 +16,9 @@ import { MatButtonModule } from "@angular/material/button";
     CommonModule,
     CardComponent,
     MatIconModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+    ActionComponent
+]
 })
 export class RecommendationComponent {
     @Input() recommendation: IRecommendation = DEFAULT_RECOMMENDATION;

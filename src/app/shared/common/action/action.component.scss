@@ -1,0 +1,16 @@
+
+@use '@angular/material' as mat;
+@use './../../../core/utils/theme/theme.scss' as theme;
+
+.action__container {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    .action-button {
+        padding: 24px 12px
+    }
+    .btn-outlined {
+        border: 1px solid mat.m2-get-color-from-palette(theme.$netflix-primary, 700);
+        color: theme.$netflix-light-color;
+    }
+}

@@ -6,6 +6,9 @@
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 16px;
     & .recommendation__item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
         cursor: pointer;
         transition: transform 0.3s ease;
         &:hover {
@@ -17,7 +20,6 @@
         height: 300px;
     }
     & .recommendation__details {
-        padding: 0 8px;
 
         & .recommendation__title {
             font-weight: bold;

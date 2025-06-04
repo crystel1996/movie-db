@@ -49,7 +49,10 @@ export class MoviesDetailComponent {
                     },
                     duration: "2h 28m",
                     genres: ["Action", "Sci-Fi", "Thriller"],
-                    url: "/watch/inception"
+                    url: "/movies/1",
+                    actions: [
+                        { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                    ]
                 },
                 {
                     card: {
@@ -59,38 +62,11 @@ export class MoviesDetailComponent {
                     },
                     duration: "2h 49m",
                     genres: ["Adventure", "Drama", "Sci-Fi"],
-                    url: "/watch/interstellar"
+                    url: "/movies/1",
+                    actions: [
+                        { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                    ]
                 },
-                {
-                    card: {
-                        title: "The Matrix",
-                        onlyImage: true,
-                        imageUrl: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
-                    },
-                    duration: "2h 16m",
-                    genres: ["Action", "Sci-Fi"],
-                    url: "/watch/the-matrix"
-                },
-                {
-                    card: {
-                        title: "Parasite",
-                        onlyImage: true,
-                        imageUrl: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-                    },
-                    duration: "2h 12m",
-                    genres: ["Drama", "Thriller"],
-                    url: "/watch/parasite"
-                },
-                {
-                    card: {
-                        title: "Avengers: Endgame",
-                        onlyImage: true,
-                        imageUrl: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
-                    },
-                    duration: "3h 1m",
-                    genres: ["Action", "Adventure", "Sci-Fi"],
-                    url: "/watch/avengers-endgame"
-                }
             ]
         }
     }

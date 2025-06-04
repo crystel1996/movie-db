@@ -1,3 +1,5 @@
+import { IAction } from "../action/action.interface";
+
 export type MetaType = {
     [key: string]: string | number;
 }
@@ -7,15 +9,8 @@ export interface ICarouselItems {
     title: string;
     description: string;
     imageUrl: string;
-    actions: ICarouselAction[];
+    actions: IAction[];
     meta? : MetaType;
-}
-
-export interface ICarouselAction {
-    label: string;
-    url: string;
-    buttonType: "outlined" | "filled";
-    icon?: string;
 }
 
 export interface ICarousel {

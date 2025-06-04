@@ -1,3 +1,4 @@
+import { IAction } from "../../common/action/action.interface";
 import { ICard } from "../../common/card/card.interface";
 
 export interface IMoviesListItem {
@@ -5,6 +6,7 @@ export interface IMoviesListItem {
     card: ICard;
     duration: string;
     genres: string[];
+    actions: IAction[]
 }
 
 export interface IMoviesList {

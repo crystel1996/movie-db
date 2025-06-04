@@ -11,28 +11,7 @@
           </span>
         </div>
         <div class="carousel-actions" >
-          <ng-container *ngFor="let action of item.actions">
-            <a 
-              [href]="action.url"
-              *ngIf="action.buttonType === 'filled'"
-              mat-flat-button
-              color="primary"
-              class="action-button btn-filled"
-            >
-              <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
-              {{ action.label }}
-            </a>
-            <a 
-              [href]="action.url"
-              *ngIf="action.buttonType === 'outlined'"
-              mat-stroked-button
-              color="primary"
-              class="action-button btn-outlined"
-            >
-              <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
-              {{ action.label }}
-            </a>
-          </ng-container>
+          <movies-action [actions]="item.actions"></movies-action>
         </div>
         <div class="carousel-dots">
           <span
