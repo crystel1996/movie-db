@@ -1,0 +1,14 @@
+<movies-main-layout></movies-main-layout>
+<div class="series__video-container">
+    <movies-video [itemVideo]="seriesDetail.itemVideo"></movies-video>
+</div>
+<main class="series-detail">
+    <div>
+        <movies-section-title title="Informations"></movies-section-title>
+        <movies-information [informations]="seriesDetail.informations"></movies-information>
+    </div>
+    <div>
+        <movies-section-title title="Other series"></movies-section-title>
+        <movies-movies-list [movies]="seriesDetail.otherSeries"></movies-movies-list>
+    </div>
+</main>
