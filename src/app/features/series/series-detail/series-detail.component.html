@@ -8,6 +8,10 @@
         <movies-information [informations]="seriesDetail.informations"></movies-information>
     </div>
     <div>
+        <movies-section-title title="Seasons"></movies-section-title>
+        <movies-series-seasons [input]="seriesDetail.seasons"></movies-series-seasons>
+    </div>
+    <div>
         <movies-section-title title="Other series"></movies-section-title>
         <movies-movies-list [movies]="seriesDetail.otherSeries"></movies-movies-list>
     </div>

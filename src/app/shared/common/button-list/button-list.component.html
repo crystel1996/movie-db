@@ -1,0 +1,10 @@
+<button mat-button [matMenuTriggerFor]="menu" class="button-list">
+  {{ input.selectedItem?.label || input.defaultLabel }}
+  <mat-icon>arrow_drop_down</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let item of input.labels" (click)="selectLabel(item)">
+    {{ item.label }}
+  </button>
+</mat-menu>

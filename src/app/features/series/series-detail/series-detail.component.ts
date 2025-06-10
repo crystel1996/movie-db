@@ -5,6 +5,7 @@ import { ISerieDetail } from "./series-detail.interface";
 import { SectionTitleComponent } from "../../../shared/common/title/title.component";
 import { InformationComponent } from "../../../shared/ui/information/information.component";
 import { MoviesListComponent } from "../../../shared/ui/movies-list/movies-list.component";
+import { SeriesSeasonsComponent } from "../../../shared/ui/series-seasons/series-seasons.component";
 
 @Component({
     selector: 'movies-series-detail',
@@ -16,7 +17,8 @@ import { MoviesListComponent } from "../../../shared/ui/movies-list/movies-list.
     VideoComponent,
     SectionTitleComponent,
     InformationComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    SeriesSeasonsComponent
 ]
 })
 export class SeriesDetailComponent {
@@ -40,6 +42,64 @@ export class SeriesDetailComponent {
                 values: ["Christopher Nolan"]
             },
         ],
+        seasons: {
+            seasons: [
+                {id: 1, label: 'Season 1'}, 
+                {id: 2, label: 'Season 2'}, 
+                {id: 3, label: 'Season 3'}
+            ],
+            items: [
+                {
+                    seasonId: 1, 
+                    series:  [
+                        {
+                            card: {
+                                title: "Mission Season 1: Impossible - The Final Reckoning",
+                                onlyImage: true,
+                                imageUrl: "https://image.tmdb.org/t/p/w500/mission_impossible_final_reckoning.jpg"
+                            },
+                            duration: "2h 30m",
+                            genres: ["Action", "Adventure"],
+                            url: "/series/1/2/3",
+                            actions: [
+                                { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                            ]
+                        },
+                        {
+                            card: {
+                                title: "Mission Season 1: Impossible - The Final Reckoning",
+                                onlyImage: true,
+                                imageUrl: "https://image.tmdb.org/t/p/w500/mission_impossible_final_reckoning.jpg"
+                            },
+                            duration: "2h 30m",
+                            genres: ["Action", "Adventure"],
+                            url: "/series/1/2/3",
+                            actions: [
+                                { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    seasonId: 2, 
+                    series:  [
+                        {
+                            card: {
+                                title: "Mission Season 2: Impossible - The Final Reckoning",
+                                onlyImage: true,
+                                imageUrl: "https://image.tmdb.org/t/p/w500/mission_impossible_final_reckoning.jpg"
+                            },
+                            duration: "2h 30m",
+                            genres: ["Action", "Adventure"],
+                            url: "/series/1/2/3",
+                            actions: [
+                                { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
+                            ]
+                        },
+                    ]
+                }
+            ]
+        },
         otherSeries: {
             items: [
                 {
