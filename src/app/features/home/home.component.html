@@ -9,11 +9,11 @@
     </div>
     <div class="new-release__container">
         <movies-section-title [title]="'New Releases - Movies'"></movies-section-title>
-        <movies-new-release [newRelease]="newReleaseMovies"></movies-new-release>
+        <movies-new-release type="movies" [newRelease]="newReleaseMovies"></movies-new-release>
     </div>
     <div class="new-release__container">
         <movies-section-title [title]="'New Releases - Series'"></movies-section-title>
-        <movies-new-release [newRelease]="newReleaseSeries"></movies-new-release>
+        <movies-new-release type="series" [newRelease]="newReleaseSeries"></movies-new-release>
     </div>
     <div class="recommendation__container">
         <movies-section-title [title]="'Recommendation'"></movies-section-title>

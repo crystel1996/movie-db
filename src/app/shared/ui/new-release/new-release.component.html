@@ -8,7 +8,7 @@
             <div class="new-release__details">
                 <h3 class="new-release__title">{{ item.card.title }}</h3>
                 <div class="new-release__duration">
-                    <p>Duration: </p>
+                    <p>{{ type === 'movies' ? 'Duration: ' : 'Seasons: ' }}</p>
                     <button mat-stroked-button color="primary">
                         <mat-icon>schedule</mat-icon>
                         {{ item.duration }}

@@ -10,5 +10,5 @@ export interface INewReleaseItem {
 }
 
 export interface INewRelease {
-    items: INewReleaseItem[]
+    items: INewReleaseItem[];
 }

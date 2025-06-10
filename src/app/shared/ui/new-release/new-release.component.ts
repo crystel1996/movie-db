@@ -23,4 +23,5 @@ import { ActionComponent } from "../../common/action/action.component";
 export class NewReleaseComponent {
     
   @Input() newRelease: INewRelease = DEFAULT_NEW_RELEASE;
+  @Input() type: 'movies' | 'series' = 'movies';
 }
