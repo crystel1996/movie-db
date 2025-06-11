@@ -8,6 +8,7 @@ import { ILayoutProperty } from "./main-layout.interface";
 import { AlignDirectionEnum } from "../../core/utils/enum/align-direction.enum";
 import { SearchFormComponent } from "../../shared/ui/search-form/search-form.component";
 import { MatIconModule } from "@angular/material/icon";
+import { IList } from "../../shared/common/list/list.interface";
 
 @Component({
     selector: "movies-main-layout",
@@ -24,15 +25,6 @@ import { MatIconModule } from "@angular/material/icon";
 ]
 })
 export class MainLayoutComponent {
-    // This component serves as the main layout for the application.
-    // It can be extended with additional functionality or properties as needed.
-    constructor(private breakpointObserver: BreakpointObserver) {
-        this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
-            this.isMobile = result.matches;
-            this.layoutProperty.navigationLeft.direction = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
-            this.layoutProperty.navigationRight.direction = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
-        });
-    }
 
     isMobile = false;
     showMobileMenu = false;
@@ -55,7 +47,28 @@ export class MainLayoutComponent {
         },
     }
 
-    mergedNavigationList = {...this.layoutProperty.navigationLeft, ...this.layoutProperty.navigationRight}
+    mergedNavigationList: IList = {
+        items: [
+            ...this.layoutProperty.navigationLeft.items,
+            ...this.layoutProperty.navigationRight.items
+        ],
+        direction:  AlignDirectionEnum.VERTICAL
+    }
+
+    constructor(private breakpointObserver: BreakpointObserver) {
+        this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+            this.isMobile = result.matches;
+            this.layoutProperty.navigationLeft.direction = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
+            this.layoutProperty.navigationRight.direction = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
+            this.mergedNavigationList = {
+                items: [
+                    ...this.layoutProperty.navigationLeft.items,
+                    ...this.layoutProperty.navigationRight.items
+                ],
+                direction:  AlignDirectionEnum.VERTICAL
+            }
+        });
+    }
 
     toggleMobileMenu(): void {
         this.showMobileMenu = !this.showMobileMenu;
