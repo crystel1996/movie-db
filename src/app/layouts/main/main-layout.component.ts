@@ -40,7 +40,6 @@ export class MainLayoutComponent {
         navigationRight: {
             items: [
                 {path: "/movies", label: "Movies"},
-                {path: "/series", label: "Series"},
                 {path: "/login", label: "Login/Signup"},
             ],
             direction:  AlignDirectionEnum.HORIZONTAL
