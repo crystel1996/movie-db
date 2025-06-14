@@ -48,8 +48,8 @@ export class MainLayoutComponent {
 
     mergedNavigationList: IList = {
         items: [
-            ...this.layoutProperty.navigationLeft.items,
-            ...this.layoutProperty.navigationRight.items
+            ...this.layoutProperty.navigationLeft.items as any,
+            ...this.layoutProperty.navigationRight.items as any
         ],
         direction:  AlignDirectionEnum.VERTICAL
     }
@@ -61,8 +61,8 @@ export class MainLayoutComponent {
             this.layoutProperty.navigationRight.direction = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
             this.mergedNavigationList = {
                 items: [
-                    ...this.layoutProperty.navigationLeft.items,
-                    ...this.layoutProperty.navigationRight.items
+                    ...this.layoutProperty.navigationLeft.items as any,
+                    ...this.layoutProperty.navigationRight.items as any
                 ],
                 direction:  AlignDirectionEnum.VERTICAL
             }
