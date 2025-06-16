@@ -10,6 +10,7 @@ import { GenreEffects } from './core/services/genre/genre.effect';
 import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/Auth.interceptor';
 import { NewReleaseEffects } from './core/services/new-release/new-release.effect';
+import { RecommendationEffect } from './core/services/recommendation/recommendation.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,7 +22,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptorsFromDi()
     ),
     provideStore(appReducers),
-    provideEffects(GenreEffects, NewReleaseEffects),
+    provideEffects(GenreEffects, NewReleaseEffects, RecommendationEffect),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

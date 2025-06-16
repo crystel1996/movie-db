@@ -4,7 +4,7 @@ import { ICard } from "../../common/card/card.interface";
 export interface IRecommendationItem {
     card: ICard;
     url: string;
-    duration: string;
+    releaseDate: Date;
     genres: string[];
     actions: IAction[]
 }

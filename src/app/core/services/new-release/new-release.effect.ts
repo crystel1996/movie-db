@@ -33,8 +33,6 @@ export class NewReleaseEffects {
 
                                 const genreMap = new Map(genres.map(genre => [genre.id, genre.label]));
 
-                                console.log('GENRES', genres)
-
                                 const transformedNewReleases = response?.results?.map((newRelease: any) => {
                                     const genreLabels = newRelease?.genre_ids?.map((id: number) => genreMap.get(id)) || [];
                                     return  {
@@ -49,8 +47,6 @@ export class NewReleaseEffects {
                                         actions: []
                                     }
                                 });
-
-                                console.log('TRANSFORMED', transformedNewReleases);
 
                                 return NewReleaseActions.loadNewReleasesSuccess({ newReleases: transformedNewReleases })
                             }),

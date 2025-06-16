@@ -7,5 +7,8 @@ export const ApiConfig = {
     },
     newRelease: {
         list: `${API_TMDB_BASE_URL}/discover/movie?include_adult=true&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
+    },
+    recommendation: {
+        list: `${API_TMDB_BASE_URL}/movie/popular?language=en-US&page=1`
     }
 }
