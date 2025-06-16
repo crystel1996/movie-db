@@ -9,6 +9,8 @@ import { Store } from "@ngrx/store";
 import { loadGenres } from "../../core/services/genre/genre.action";
 import * as GenreSelector from '../../core/services/genre/genre.selector'
 import { Observable, Subject, takeUntil } from "rxjs";
+import { CommonModule } from "@angular/common";
+import { LoadingComponent } from "../../shared/common/loading/loading.component";
 
 @Component({
     selector: 'movies-genre',
@@ -16,10 +18,12 @@ import { Observable, Subject, takeUntil } from "rxjs";
     styleUrls: ['./genre.component.scss'],
     standalone: true,
     imports: [
-        MainLayoutComponent,
-        GenreListComponent,
-        SectionTitleComponent
-    ]
+    MainLayoutComponent,
+    GenreListComponent,
+    SectionTitleComponent,
+    CommonModule,
+    LoadingComponent
+]
 })
 export class GenreComponent implements OnInit {
 

@@ -2,6 +2,12 @@
 <main class="genre">
     <div class="genre-list__container">
         <movies-section-title [title]="sectionTitle.list"></movies-section-title>
-        <movies-genre-list [genreList]="genreList"></movies-genre-list>
+        <!-- Loader -->
+        <ng-container *ngIf="loading | async; else showGenres">
+            <movies-loading />
+        </ng-container>
+        <ng-template #showGenres>
+            <movies-genre-list [genreList]="genreList"></movies-genre-list>
+        </ng-template>
     </div>
 </main>
