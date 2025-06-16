@@ -23,6 +23,7 @@ export class GenreEffects {
 
                                 const transformedGenres = response?.genres?.map((genre: any) => {
                                     return {
+                                        id: genre.id,
                                         path: `/genres/${genre.id}`,
                                         label: genre.name
                                     }

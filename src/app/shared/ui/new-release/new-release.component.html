@@ -8,10 +8,10 @@
             <div class="new-release__details">
                 <h3 class="new-release__title">{{ item.card.title }}</h3>
                 <div class="new-release__duration">
-                    <p>{{ type === 'movies' ? 'Duration: ' : 'Seasons: ' }}</p>
+                    <p>{{ type === 'movies' ? 'Release date: ' : 'Seasons: ' }}</p>
                     <button mat-stroked-button color="primary">
-                        <mat-icon>schedule</mat-icon>
-                        {{ item.duration }}
+                        <mat-icon>event</mat-icon>
+                        {{ item.releaseDate | date: 'dd/MM/YYYY' }}
                     </button>
                 </div>
                 <div class="new-release__genres">

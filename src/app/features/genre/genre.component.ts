@@ -18,12 +18,12 @@ import { LoadingComponent } from "../../shared/common/loading/loading.component"
     styleUrls: ['./genre.component.scss'],
     standalone: true,
     imports: [
-    MainLayoutComponent,
-    GenreListComponent,
-    SectionTitleComponent,
-    CommonModule,
-    LoadingComponent
-]
+        MainLayoutComponent,
+        GenreListComponent,
+        SectionTitleComponent,
+        CommonModule,
+        LoadingComponent
+    ]
 })
 export class GenreComponent implements OnInit {
 
@@ -33,18 +33,18 @@ export class GenreComponent implements OnInit {
     private destroy$ = new Subject<void>();
 
     constructor(private store: Store) {
-        const items = this.store
-                        .select(GenreSelector.selectGenres)
-                        .pipe(takeUntil(this.destroy$))
-                        .subscribe((genres: IListItem[]) => {
-                            this.genreList = {
-                                items: genres,
-                                direction: AlignDirectionEnum.HORIZONTAL,
-                                customClass: "nav-list"
-                            };
+        this.store
+            .select(GenreSelector.selectGenres)
+            .pipe(takeUntil(this.destroy$))
+            .subscribe((genres: IListItem[]) => {
+                this.genreList = {
+                    items: genres,
+                    direction: AlignDirectionEnum.HORIZONTAL,
+                    customClass: "nav-list"
+                };
 
-                        });
-        
+            });
+
         this.error = this.store.select(GenreSelector.selectGenresError);
         this.loading = this.store.select(GenreSelector.selectGenresLoading)
     }

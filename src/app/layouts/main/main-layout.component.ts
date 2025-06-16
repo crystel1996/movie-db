@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { LogoComponent } from "../../shared/common/logo/logo.component";
@@ -9,6 +9,8 @@ import { AlignDirectionEnum } from "../../core/utils/enum/align-direction.enum";
 import { SearchFormComponent } from "../../shared/ui/search-form/search-form.component";
 import { MatIconModule } from "@angular/material/icon";
 import { IList } from "../../shared/common/list/list.interface";
+import { Store } from "@ngrx/store";
+import { loadGenres } from "../../core/services/genre/genre.action";
 
 @Component({
     selector: "movies-main-layout",
@@ -24,7 +26,7 @@ import { IList } from "../../shared/common/list/list.interface";
     SearchFormComponent
 ]
 })
-export class MainLayoutComponent {
+export class MainLayoutComponent implements OnInit {
 
     isMobile = false;
     showMobileMenu = false;
@@ -54,7 +56,7 @@ export class MainLayoutComponent {
         direction:  AlignDirectionEnum.VERTICAL
     }
 
-    constructor(private breakpointObserver: BreakpointObserver) {
+    constructor(private breakpointObserver: BreakpointObserver, private store: Store) {
         this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
             this.isMobile = result.matches;
             this.layoutProperty.navigationLeft.direction = this.isMobile ? AlignDirectionEnum.VERTICAL : AlignDirectionEnum.HORIZONTAL;
@@ -71,5 +73,9 @@ export class MainLayoutComponent {
 
     toggleMobileMenu(): void {
         this.showMobileMenu = !this.showMobileMenu;
+    }
+
+    ngOnInit(): void {
+        this.store.dispatch(loadGenres());
     }
 }

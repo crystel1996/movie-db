@@ -5,12 +5,11 @@ import { ApiConfig } from "../../config/api.config";
 @Injectable({
     providedIn: 'root'
 })
-export class GenreService {
-
+export class NewReleaseService {
     constructor(private http: HttpClient) {}
 
-    getGenres() {
-        return this.http.get(ApiConfig.genre.list)
+    getNewReleases() {
+        return this.http.get(ApiConfig.newRelease.list)
     }
 
 }

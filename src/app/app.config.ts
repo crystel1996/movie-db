@@ -9,6 +9,7 @@ import { provideEffects } from '@ngrx/effects';
 import { GenreEffects } from './core/services/genre/genre.effect';
 import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/Auth.interceptor';
+import { NewReleaseEffects } from './core/services/new-release/new-release.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,7 +21,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptorsFromDi()
     ),
     provideStore(appReducers),
-    provideEffects(GenreEffects),
+    provideEffects(GenreEffects, NewReleaseEffects),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
