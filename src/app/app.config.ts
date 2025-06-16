@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors, with
 import { AuthInterceptor } from './core/interceptors/Auth.interceptor';
 import { NewReleaseEffects } from './core/services/new-release/new-release.effect';
 import { RecommendationEffect } from './core/services/recommendation/recommendation.effect';
+import { CtaEffects } from './core/services/cta/cta.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,7 +23,12 @@ export const appConfig: ApplicationConfig = {
       withInterceptorsFromDi()
     ),
     provideStore(appReducers),
-    provideEffects(GenreEffects, NewReleaseEffects, RecommendationEffect),
+    provideEffects(
+      GenreEffects, 
+      NewReleaseEffects, 
+      RecommendationEffect,
+      CtaEffects
+    ),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

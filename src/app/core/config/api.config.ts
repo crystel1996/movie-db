@@ -10,5 +10,8 @@ export const ApiConfig = {
     },
     recommendation: {
         list: `${API_TMDB_BASE_URL}/movie/popular?language=en-US&page=1`
+    },
+    cta: {
+        list: `${API_TMDB_BASE_URL}/movie/top_rated?language=en-US&page=1`
     }
 }
