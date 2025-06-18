@@ -1,9 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
 import * as MoviesAction from './movies.action';
 import { IGenreDetailItems } from "../../../shared/ui/genre-detail/genre-detail.interface";
+import { IMoviesListItem } from "../../../shared/ui/movies-list/movies-list.interface";
 
 export interface IMovieState {
-    movies: IGenreDetailItems[];
+    movies: IMoviesListItem[];
     moviesByGenreId: IGenreDetailItems[];
     loading: boolean;
     error: any;

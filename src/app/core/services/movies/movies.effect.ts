@@ -16,12 +16,19 @@ export class MovieEffects {
     private store = inject(Store);
     action = inject(Actions);
 
-    triggerMoviesAfterGenres = createEffect(() =>
+    triggerMoviesByGenreIdAfterGenres = createEffect(() =>
         this.action.pipe(
             ofType(GenreActions.loadGenresSuccess),
             map(action => action.genres?.[0]?.id),
             filter((id): id is string => !!id),
             map((id) => MoviesAction.loadMoviesByGenreId({ id }))
+        )
+    );
+
+    triggerMoviesListAfterGenres = createEffect(() =>
+        this.action.pipe(
+            ofType(GenreActions.loadGenresSuccess),
+            map(() => MoviesAction.loadMovies())
         )
     );
 
@@ -53,6 +60,39 @@ export class MovieEffects {
                                 return MoviesAction.loadMoviesByGenreIdSuccess({ movies: transformedMovies })
                             }),
                             catchError(error => of(MoviesAction.loadMoviesByGenreIdFailure({ error })))
+                        )
+                    )
+                );
+    });
+
+    loadListMovies = createEffect(() => {
+        return  this.action.pipe(
+                    ofType(MoviesAction.loadMovies),
+                    withLatestFrom(this.store.select(selectGenres)),
+                    mergeMap(([action, genres]) => 
+                        this.movieService.getListMovie().pipe(
+                            map((response: any) => {
+
+                                const genreMap = new Map(genres.map(genre => [genre.id, genre.label]));
+
+                                const transformedMovies = response?.results?.map((movie: any) => {
+                                    const genreLabels = movie?.genre_ids?.map((id: number) => genreMap.get(id)) || [];
+                                    return  {
+                                        card: {
+                                            title: movie?.title,
+                                            onlyImage: true,
+                                            imageUrl: `${API_TMDB_BASE_POSTER_URL}${movie?.poster_path}`,
+                                        },
+                                        releaseDate: new Date(movie?.release_date),
+                                        genres: genreLabels || [],
+                                        url: `/movies/${movie?.id}`,
+                                        actions: []
+                                    }
+                                });
+
+                                return MoviesAction.loadMoviesSuccess({ movies: transformedMovies })
+                            }),
+                            catchError(error => of(MoviesAction.loadMoviesFailure({ error })))
                         )
                     )
                 );

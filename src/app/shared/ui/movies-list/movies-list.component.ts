@@ -12,12 +12,12 @@ import { ActionComponent } from "../../common/action/action.component";
     templateUrl : './movies-list.component.html',
     styleUrls: ['./movies-list.component.scss'],
     imports: [
-    CommonModule,
-    MatIconModule,
-    MatButtonModule,
-    CardComponent,
-    ActionComponent
-]
+        CommonModule,
+        MatIconModule,
+        MatButtonModule,
+        CardComponent,
+        ActionComponent
+    ]
 })
 export class MoviesListComponent {
     @Input() movies: IMoviesList = DEFAULT_MOVIES;

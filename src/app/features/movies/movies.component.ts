@@ -1,9 +1,13 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MainLayoutComponent } from "../../layouts/main/main-layout.component";
 import { MoviesListComponent } from "../../shared/ui/movies-list/movies-list.component";
 import { SectionTitleComponent } from "../../shared/common/title/title.component";
 import { CommonModule } from "@angular/common";
-import { IMoviesFeature } from "./movies.interface";
+import { Observable, Subject, takeUntil } from "rxjs";
+import { Store } from "@ngrx/store";
+import * as MovieSelector from './../../core/services/movies/movies.selector'
+import { IMoviesList, IMoviesListItem } from "../../shared/ui/movies-list/movies-list.interface";
+import { loadMovies } from "../../core/services/movies/movies.action";
 
 @Component({
     selector: "movies-movies-list-feature",
@@ -16,68 +20,31 @@ import { IMoviesFeature } from "./movies.interface";
     CommonModule
 ]
 })
-export class MoviesComponent {
-    movies: IMoviesFeature[] = [
-    {
-        genre: "Action & Adventure",
-        movies: {
-            items: [
-                {
-                    card: {
-                        title: "Mission: Impossible - The Final Reckoning",
-                        onlyImage: true,
-                        imageUrl: "https://image.tmdb.org/t/p/w500/mission_impossible_final_reckoning.jpg"
-                    },
-                    duration: "2h 30m",
-                    genres: ["Action", "Adventure"],
-                    url: "/movies/1",
-                    actions: [
-                        { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
-                    ]
+export class MoviesComponent implements OnInit {
+
+    private destroy$ = new Subject<void>();
+    loading!: Observable<boolean>;
+    movies!: IMoviesList;
+
+    constructor(private store: Store) {
+        this.store
+            .select(MovieSelector.selectMovie)
+            .pipe(takeUntil(this.destroy$))
+            .subscribe((movies: IMoviesListItem[]) => {
+                this.movies = {
+                    items: movies || []
                 }
-            ]
-        }
-    },
-    {
-        genre: "Animation",
-        movies: {
-        items: [
-            {
-                card: {
-                    title: "Lilo & Stitch",
-                    onlyImage: true,
-                    imageUrl: "https://image.tmdb.org/t/p/w500/lilo_and_stitch.jpg"
-                },
-                duration: "1h 25m",
-                genres: ["Animation", "Family"],
-                url: "/movies/1",
-                actions: [
-                    { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
-                ]
-            }
-        ]
-        }
-    },
-    {
-        genre: "Comedy",
-        movies: {
-        items: [
-                {
-                    card: {
-                        title: "Three Friends",
-                        onlyImage: true,
-                        imageUrl: "https://image.tmdb.org/t/p/w500/three_friends.jpg"
-                    },
-                    duration: "1h 40m",
-                    genres: ["Comedy", "Drama"],
-                    url: "/movies/1",
-                    actions: [
-                        { label: "Watch later", buttonType: "outlined", icon: "watch_later" }
-                    ]
-                }
-            ]
-        }
+            });
+        this.loading = this.store.select(MovieSelector.selectMovieLoading);
     }
-];
+
+    ngOnInit(): void {
+        this.store.dispatch(loadMovies());
+    }
+    
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
+    }
 
 }

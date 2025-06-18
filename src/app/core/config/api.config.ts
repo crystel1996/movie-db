@@ -15,6 +15,7 @@ export const ApiConfig = {
         list: `${API_TMDB_BASE_URL}/movie/top_rated?language=en-US&page=1`
     },
     movies: {
-        byGenreId: (genreId: string) => `${API_TMDB_BASE_URL}/discover/movie?language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`
+        byGenreId: (genreId: string) => `${API_TMDB_BASE_URL}/discover/movie?language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`,
+        list: `${API_TMDB_BASE_URL}/movie/popular?language=en-US&page=1`
     }
 }

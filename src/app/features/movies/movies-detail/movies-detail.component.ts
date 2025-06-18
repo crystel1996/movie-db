@@ -47,7 +47,7 @@ export class MoviesDetailComponent {
                         onlyImage: true,
                         imageUrl: "https://image.tmdb.org/t/p/w500/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg",
                     },
-                    duration: "2h 28m",
+                    releaseDate: new Date(),
                     genres: ["Action", "Sci-Fi", "Thriller"],
                     url: "/movies/1",
                     actions: [
@@ -60,7 +60,7 @@ export class MoviesDetailComponent {
                         onlyImage: true,
                         imageUrl: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
                     },
-                    duration: "2h 49m",
+                    releaseDate: new Date(),
                     genres: ["Adventure", "Drama", "Sci-Fi"],
                     url: "/movies/1",
                     actions: [

@@ -14,4 +14,8 @@ export class MovieService {
         return this.http.get(ApiConfig.movies.byGenreId(id || ''));
     }
 
+    getListMovie() {
+        return this.http.get(ApiConfig.movies.list);
+    }
+
 }
