@@ -14,8 +14,7 @@ export const genreRoutes: Routes = [
             provideEffects(GenreEffects)
         ]
     },
-    {
-        title: 'Genre detail', 
+    { 
         path: 'genres/:id', 
         component: GenreDetailComponent, 
         data: {

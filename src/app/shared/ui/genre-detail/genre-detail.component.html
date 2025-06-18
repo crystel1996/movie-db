@@ -8,10 +8,10 @@
             <div class="genre-detail__details">
                 <h3 class="genre-detail__title">{{ item.card.title }}</h3>
                 <div class="genre-detail__duration">
-                    <p>Duration: </p>
+                    <p>Release date: </p>
                     <button mat-stroked-button color="primary">
-                        <mat-icon>schedule</mat-icon>
-                        {{ item.duration }}
+                        <mat-icon>event</mat-icon>
+                        {{ item.releaseDate | date: 'dd/MM/YYYY' }}
                     </button>
                 </div>
                 <div class="genre-detail__genres">

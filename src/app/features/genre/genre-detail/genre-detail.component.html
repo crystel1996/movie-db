@@ -2,10 +2,20 @@
 <main class="genre-detail">
     <div class="genre-detail__container">
         <movies-section-title [title]="genre"></movies-section-title>
-        <movies-genre-detail [genreDetail]="genreDetail"></movies-genre-detail>
+        <ng-container *ngIf="loadingMovieByGenreId | async; else showMovieList">
+            <movies-loading />
+        </ng-container>
+        <ng-template #showMovieList>
+            <movies-genre-detail [genreDetail]="genreDetail"></movies-genre-detail>
+        </ng-template>
     </div>
     <div class="genre-detail__list-genre">
         <movies-section-title title="Other genres"></movies-section-title>
-        <movies-genre-list [genreList]="genreList"></movies-genre-list>
+        <ng-container *ngIf="loadingGenreList | async; else showGenreList">
+            <movies-loading />
+        </ng-container>
+        <ng-template #showGenreList>
+            <movies-genre-list [genreList]="genreList"></movies-genre-list>
+        </ng-template>
     </div>
 </main>

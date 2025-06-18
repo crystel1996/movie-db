@@ -12,6 +12,7 @@ import { AuthInterceptor } from './core/interceptors/Auth.interceptor';
 import { NewReleaseEffects } from './core/services/new-release/new-release.effect';
 import { RecommendationEffect } from './core/services/recommendation/recommendation.effect';
 import { CtaEffects } from './core/services/cta/cta.effect';
+import { MovieEffects } from './core/services/movies/movies.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,7 +28,8 @@ export const appConfig: ApplicationConfig = {
       GenreEffects, 
       NewReleaseEffects, 
       RecommendationEffect,
-      CtaEffects
+      CtaEffects,
+      MovieEffects
     ),
     {
       provide: HTTP_INTERCEPTORS,

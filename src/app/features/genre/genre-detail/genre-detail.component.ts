@@ -3,11 +3,18 @@ import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
 import { MainLayoutComponent } from "../../../layouts/main/main-layout.component";
 import { SectionTitleComponent } from "../../../shared/common/title/title.component";
-import { IGenreDetail } from "../../../shared/ui/genre-detail/genre-detail.interface";
+import { IGenreDetail, IGenreDetailItems } from "../../../shared/ui/genre-detail/genre-detail.interface";
 import { GenreDetailComponent } from "../../../shared/ui/genre-detail/genre-detail.component";
 import { GenreListComponent } from "../../../shared/ui/genre-list/genre-list.component";
 import { AlignDirectionEnum } from "../../../core/utils/enum/align-direction.enum";
 import { IList } from "../../../shared/common/list/list.interface";
+import { combineLatestWith, filter, map, Observable, Subject, takeUntil } from "rxjs";
+import { Store } from "@ngrx/store";
+import * as GenreSelector from '../../../core/services/genre/genre.selector';
+import { loadMoviesByGenreId } from "../../../core/services/movies/movies.action";
+import * as MovieSelector from '../../../core/services/movies/movies.selector';
+import { CommonModule } from "@angular/common";
+import { LoadingComponent } from "../../../shared/common/loading/loading.component";
 
 @Component({
     selector: 'movies-genre-detail-feature',
@@ -18,89 +25,60 @@ import { IList } from "../../../shared/common/list/list.interface";
         MainLayoutComponent,
         SectionTitleComponent,
         GenreDetailComponent,
-        GenreListComponent
+        GenreListComponent,
+        LoadingComponent,
+        CommonModule
     ]
 })
 export class GenreDetailFeature implements OnInit {
-    private genreId!: string;
+    private destroy$ = new Subject<void>();
     genre!: string;
-    genreDetail: IGenreDetail = {
-        items: [
-                {
-                    card: {
-                    title: "The Matrix",
-                    onlyImage: true,
-                    imageUrl: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
-                    },
-                    duration: "2h 16m",
-                    genres: ["Action", "Sci-Fi"],
-                    url: "/watch/the-matrix"
-                },
-                {
-                    card: {
-                    title: "Interstellar",
-                    onlyImage: true,
-                    imageUrl: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
-                    },
-                    duration: "2h 49m",
-                    genres: ["Adventure", "Drama", "Sci-Fi"],
-                    url: "/watch/interstellar"
-                },
-                {
-                    card: {
-                    title: "Mad Max: Fury Road",
-                    onlyImage: true,
-                    imageUrl: "https://image.tmdb.org/t/p/w500/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg",
-                    },
-                    duration: "2h 0m",
-                    genres: ["Action", "Adventure", "Sci-Fi"],
-                    url: "/watch/mad-max-fury-road"
-                },
-                {
-                    card: {
-                    title: "Blade Runner 2049",
-                    onlyImage: true,
-                    imageUrl: "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
-                    },
-                    duration: "2h 44m",
-                    genres: ["Drama", "Sci-Fi", "Mystery"],
-                    url: "/watch/blade-runner-2049"
-                }
-            ],
-    };
-
-    genreList: IList ={
-        items:  [
-                { path: '/genres/10759', label: "Action & Adventure" },
-                { path: '/genres/16', label: "Animation" },
-                { path: '/genres/35', label: "Comedy" },
-                { path: '/genres/80', label: "Crime" },
-                { path: '/genres/99', label: "Documentary" },
-                { path: '/genres/18', label: "Drama" },
-                { path: '/genres/10751', label: "Family" },
-                { path: '/genres/10762', label: "Kids" },
-                { path: '/genres/9648', label: "Mystery" },
-                { path: '/genres/10763', label: "News" },
-                { path: '/genres/10764', label: "Reality" },
-                { path: '/genres/10765', label: "Sci-Fi & Fantasy" },
-                { path: '/genres/10766', label: "Soap" },
-                { path: '/genres/10767', label: "Talk" },
-                { path: '/genres/10768', label: "War & Politics" },
-                { path: '/genres/37', label: "Western" }
-            ],
-        direction: AlignDirectionEnum.HORIZONTAL,
-        customClass: 'nav-list'
-    }
+    genreList!: IList;
+    genreDetail!: IGenreDetail;
+    loadingMovieByGenreId!: Observable<boolean>;
+    loadingGenreList!: Observable<boolean>;
 
     constructor(
         private route: ActivatedRoute,
-        private titleService: Title
-    ) {}
+        private titleService: Title,
+        private store: Store
+    ) {
+        this.store
+            .select(MovieSelector.selectMovieByGenreId)
+            .pipe(takeUntil(this.destroy$))
+            .subscribe((movies: IGenreDetailItems[]) => {
+                this.genreDetail = {
+                    items: movies
+                }
+            });
+    }
 
     ngOnInit(): void {
-        this.genreId = this.route.snapshot.paramMap.get('id')!;
-        this.genre = 'Action'
-        this.titleService.setTitle(this.genre)
+        this.route.paramMap
+            .pipe(
+                map(params => params.get('id')),
+                filter((id): id is string => !!id),
+                combineLatestWith(this.store.select(GenreSelector.selectGenres)),
+                takeUntil(this.destroy$)
+            )
+            .subscribe(([id, genres]) => {
+                this.store.dispatch(loadMoviesByGenreId({ id }));
+                this.genreList = {
+                    direction: AlignDirectionEnum.HORIZONTAL,
+                    customClass: 'nav-list',
+                    items: [...genres]
+                };
+                const matchedGenre = genres.find(g => g.id == id);
+                this.genre = matchedGenre?.label || '';
+                this.titleService.setTitle(this.genre);
+            });
+        this.loadingMovieByGenreId = this.store.select(MovieSelector.selectMovieLoading);
+        this.loadingGenreList = this.store.select(GenreSelector.selectGenresLoading);
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 
 }

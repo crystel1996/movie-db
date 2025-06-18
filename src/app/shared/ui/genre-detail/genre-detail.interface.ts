@@ -4,7 +4,7 @@ import { IList } from "../../common/list/list.interface";
 export interface IGenreDetailItems {
     url: string;
     card: ICard;
-    duration: string;
+    releaseDate: Date;
     genres: string[];
 }
 
