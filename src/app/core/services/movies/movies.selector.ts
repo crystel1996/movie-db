@@ -16,3 +16,4 @@ export const selectMovieByGenreId = createSelector(selectMovieState, (state: IMo
 export const selectSimilarMovie = createSelector(selectMovieState, (state: IMovieState): IMoviesListItem[] => state.similarMovies);
 export const selectMovieByID = createSelector(selectMovieState, (state: IMovieState): IMoviesInformation[] => state.movieInformations);
 export const selectMovieVideo = createSelector(selectMovieState, (state: IMovieState): IVideo | object => state.video);
+export const selectMovieSearch = createSelector(selectMovieState, (state: IMovieState): IMoviesListItem[] => state.search);

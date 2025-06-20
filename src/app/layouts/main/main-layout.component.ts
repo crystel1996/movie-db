@@ -35,13 +35,13 @@ export class MainLayoutComponent implements OnInit {
         navigationLeft: {
             items: [
                 {path: "/", label: "Home"},
-                {path: "/genres", label: "Genres"},
             ],
             direction:  AlignDirectionEnum.HORIZONTAL
         },
         navigationRight: {
             items: [
                 {path: "/movies", label: "Movies"},
+                {path: "/genres", label: "Genres"}
             ],
             direction:  AlignDirectionEnum.HORIZONTAL
         },

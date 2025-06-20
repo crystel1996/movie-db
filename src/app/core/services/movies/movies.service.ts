@@ -30,4 +30,8 @@ export class MovieService {
         return this.http.get(ApiConfig.movies.getVideo(id))
     }
 
+    getMovieSearch(query: string) {
+        return this.http.get(ApiConfig.movies.search(query))
+    }
+
 }

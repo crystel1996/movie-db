@@ -11,6 +11,7 @@ export interface IMovieState {
     similarMovies: IMoviesListItem[];
     moviesByGenreId: IGenreDetailItems[];
     video: IVideo | object;
+    search: IMoviesListItem[];
     loading: boolean;
     error: any;
 }
@@ -21,6 +22,7 @@ export const initialState: IMovieState = {
     movieInformations: [],
     moviesByGenreId: [],
     similarMovies: [],
+    search: [],
     loading: false,
     error: null
 }
@@ -88,6 +90,19 @@ export const movieReducer = createReducer(
         error: null
     })),
     on(MoviesAction.loadMovieVideoFailure, (state, { error }) => ({
+        ...state,
+        loading: false,
+        error
+    })),
+
+    on(MoviesAction.loadMovieSearch, state => ({...state, loading: true})),
+    on(MoviesAction.loadMovieSearchSuccess, (state, { movies }) => ({
+        ...state,
+        search: movies,
+        loading: false,
+        error: null
+    })),
+    on(MoviesAction.loadMovieSearchFailure, (state, { error }) => ({
         ...state,
         loading: false,
         error

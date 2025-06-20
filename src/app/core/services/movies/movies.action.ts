@@ -20,3 +20,7 @@ export const loadMovieByIdFailure = createAction('[Movies] Load Movie By ID Erro
 export const loadMovieVideo = createAction('[Movies] Load Movie Video', props<{id: string}>());
 export const loadMovieVideoSuccess = createAction('[Movies] Load Movie Video Success', props<{ video: IVideo }>());
 export const loadMovieVideoFailure = createAction('[Movies] Load Movie Video Error', props<{ error: any }>());
+
+export const loadMovieSearch = createAction('[Movies] Load Movie Search', props<{query: string}>());
+export const loadMovieSearchSuccess = createAction('[Movies] Load Movie Search Success', props<{ movies: any[] }>());
+export const loadMovieSearchFailure = createAction('[Movies] Load Movie Search Error', props<{ error: any }>());

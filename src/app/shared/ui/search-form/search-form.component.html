@@ -5,5 +5,5 @@
         [(ngModel)]="searchText"
         (keyup.enter)="onSearch()"
     >
-    <mat-icon matSuffix>search</mat-icon>
+    <mat-icon matSuffix (click)="onSearch()">search</mat-icon>
 </mat-form-field>

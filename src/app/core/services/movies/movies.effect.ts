@@ -118,8 +118,8 @@ export class MovieEffects {
             this.action.pipe(ofType(MoviesAction.loadSimilarMovies)),
             this.store.select(selectGenres)
         ]).pipe(
-            filter(([_, genres]) => genres.length > 0), // ✅ attend que genres soit peuplé
-            take(1), // 👈 optionnel : ne déclenche qu'une fois si tu veux
+            filter(([_, genres]) => genres.length > 0),
+            take(1),
             mergeMap(([action, genres]) =>
                 this.movieService.getSimilarMovies(action.id).pipe(
                     map((response: any) => {
@@ -144,6 +144,41 @@ export class MovieEffects {
                         return MoviesAction.loadSimilarMoviesSuccess({ movies: transformedSimilarMovies });
                     }),
                     catchError(error => of(MoviesAction.loadSimilarMoviesFailure({ error })))
+                )
+            )
+        )
+    );
+
+    loadMovieSearch = createEffect(() =>
+        combineLatest([
+            this.action.pipe(ofType(MoviesAction.loadMovieSearch)),
+            this.store.select(selectGenres)
+        ]).pipe(
+            filter(([_, genres]) => genres.length > 0),
+            mergeMap(([action, genres]) =>
+                this.movieService.getMovieSearch(action.query).pipe(
+                    map((response: any) => {
+                        const genreMap = new Map(genres.map(genre => [genre.id, genre.label]));
+
+                        const transformedSearchMovies = response?.results?.map((movie: any) => {
+                        const genreLabels = movie?.genre_ids?.map((id: number) => genreMap.get(id)) || [];
+
+                        return {
+                            card: {
+                                title: movie?.title,
+                                onlyImage: true,
+                                imageUrl: `${API_TMDB_BASE_POSTER_URL}${movie?.poster_path}`,
+                            },
+                            releaseDate: new Date(movie?.release_date),
+                            genres: genreLabels || [],
+                            url: `/movies/${movie?.id}`,
+                            actions: []
+                        };
+                    });
+
+                        return MoviesAction.loadMovieSearchSuccess({ movies: transformedSearchMovies });
+                    }),
+                    catchError(error => of(MoviesAction.loadMovieSearchFailure({ error })))
                 )
             )
         )
