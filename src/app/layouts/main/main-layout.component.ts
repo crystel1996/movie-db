@@ -42,7 +42,6 @@ export class MainLayoutComponent implements OnInit {
         navigationRight: {
             items: [
                 {path: "/movies", label: "Movies"},
-                {path: "/login", label: "Login/Signup"},
             ],
             direction:  AlignDirectionEnum.HORIZONTAL
         },

@@ -1,14 +1,14 @@
 <movies-main-layout></movies-main-layout>
 <div class="movies__video-container">
-    <movies-video [itemVideo]="movieDetail.itemVideo"></movies-video>
+    <movies-video [itemVideo]="video"></movies-video>
 </div>
 <main class="movies-detail">
     <div>
         <movies-section-title title="Informations"></movies-section-title>
-        <movies-information [informations]="movieDetail.informations"></movies-information>
+        <movies-information [informations]="informations"></movies-information>
     </div>
     <div>
         <movies-section-title title="Other movies"></movies-section-title>
-        <movies-movies-list [movies]="movieDetail.otherMovies"></movies-movies-list>
+        <movies-movies-list [movies]="otherMovies"></movies-movies-list>
     </div>
 </main>

@@ -18,4 +18,16 @@ export class MovieService {
         return this.http.get(ApiConfig.movies.list);
     }
 
+    getSimilarMovies(id: string) {
+        return this.http.get(ApiConfig.movies.similar(id));
+    }
+
+    getMovieById(id: string) {
+        return this.http.get(ApiConfig.movies.byId(id))
+    }
+
+    getMovieVideo(id: string) {
+        return this.http.get(ApiConfig.movies.getVideo(id))
+    }
+
 }
